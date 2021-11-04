@@ -21,5 +21,6 @@ func _physics_process(delta):
 		var result = space_state.intersect_ray(from, to)
 		if(result.empty() == false):
 			if(result.collider.is_in_group("hittable")):
-				var hitType := PlayerHit
+				var hitType: PlayerHit
+				hitType = preload("res://PlayerHit.gd").new();
 				result.collider.hit(hitType)

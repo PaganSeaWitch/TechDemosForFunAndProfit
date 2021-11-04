@@ -6,13 +6,11 @@ class_name MoveBack
 # var b = "text"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	print(get_parent().get_parent().get_instance_id())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func hit(type):
 	.hit(type)
-	emit_signal("acceptable_raycast_hit", Vector3(0, -.1, 0))
+	if(type is HitType):
+		emit_signal("acceptable_raycast_hit", Vector3(0, -.1, 0))
 

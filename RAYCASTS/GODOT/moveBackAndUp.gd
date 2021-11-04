@@ -13,6 +13,5 @@ extends MoveBack
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func hit(type):
 	.hit(type)
-	
 	if(type is PlayerHit):
 		emit_signal("acceptable_raycast_hit", Vector3(-.1, 0, 0))

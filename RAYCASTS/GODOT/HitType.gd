@@ -5,5 +5,8 @@ class_name HitType
 # var a = 2
 # var b = "text"
 
-static func getHitType():
+func getHitType():
+	return "generic"
+
+func _init():
 	pass
