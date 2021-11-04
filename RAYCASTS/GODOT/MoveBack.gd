@@ -12,5 +12,5 @@ class_name MoveBack
 func hit(type):
 	.hit(type)
 	if(type is HitType):
-		emit_signal("acceptable_raycast_hit", Vector3(0, -.1, 0))
+		emit_signal("acceptable_raycast_hit", Vector3(0, -1 * type.force, 0))
 

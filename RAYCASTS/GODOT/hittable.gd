@@ -7,7 +7,7 @@ class_name Hittable
 signal acceptable_raycast_hit(payload)
 
 func hit(type):
-	print("HIT by " + type.getHitType() + "!")
+	print("HIT by " + type.getHitType() + " with force of " + String(type.force)+ " !")
 
 
 

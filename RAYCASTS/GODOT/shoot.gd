@@ -23,4 +23,5 @@ func _physics_process(delta):
 			if(result.collider.is_in_group("hittable")):
 				var hitType: PlayerHit
 				hitType = preload("res://PlayerHit.gd").new();
+				hitType.set("force", .1)
 				result.collider.hit(hitType)

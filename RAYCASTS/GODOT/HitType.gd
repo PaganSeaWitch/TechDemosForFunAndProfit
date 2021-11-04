@@ -8,5 +8,5 @@ class_name HitType
 func getHitType():
 	return "generic"
 
-func _init():
-	pass
+var force : float = 0
+

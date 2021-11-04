@@ -14,4 +14,4 @@ extends MoveBack
 func hit(type):
 	.hit(type)
 	if(type is PlayerHit):
-		emit_signal("acceptable_raycast_hit", Vector3(-.1, 0, 0))
+		emit_signal("acceptable_raycast_hit", Vector3(-1 * type.force, 0, 0))
