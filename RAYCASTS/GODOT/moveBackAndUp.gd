@@ -7,11 +7,12 @@ extends MoveBack
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	print(get_parent().get_parent().get_instance_id())
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func hit(id):
-	.hit(id)
-	instance_from_id(id).get_parent().translate(Vector3(-.5,0,0))
+func hit(type):
+	.hit(type)
+	
+	if(type is PlayerHit):
+		emit_signal("acceptable_raycast_hit", Vector3(-.1, 0, 0))

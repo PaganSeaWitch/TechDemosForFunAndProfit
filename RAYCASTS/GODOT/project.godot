@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "HitType",
+"language": "GDScript",
+"path": "res://HitType.gd"
+}, {
+"base": "StaticBody",
 "class": "Hittable",
 "language": "GDScript",
 "path": "res://hittable.gd"
@@ -18,10 +23,17 @@ _global_script_classes=[ {
 "class": "MoveBack",
 "language": "GDScript",
 "path": "res://MoveBack.gd"
+}, {
+"base": "HitType",
+"class": "PlayerHit",
+"language": "GDScript",
+"path": "res://PlayerHit.gd"
 } ]
 _global_script_class_icons={
+"HitType": "",
 "Hittable": "",
-"MoveBack": ""
+"MoveBack": "",
+"PlayerHit": ""
 }
 
 [application]

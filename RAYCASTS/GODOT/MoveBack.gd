@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func hit(id):
-	.hit(id)
-	instance_from_id(id).get_parent().translate(Vector3(0,-1,0))
+func hit(type):
+	.hit(type)
+	emit_signal("acceptable_raycast_hit", Vector3(0, -.1, 0))
 
