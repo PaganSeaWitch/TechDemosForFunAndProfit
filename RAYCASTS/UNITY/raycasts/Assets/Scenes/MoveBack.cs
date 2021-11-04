@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MoveBack : Hittable
 {
-    public override void Hit() 
+    public override void Hit(HitType hit) 
     {
-        base.Hit();
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y +1, this.transform.position.z);
+        base.Hit(hit);
+        if(hit is HitType){
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + hit.getForce(), this.transform.position.z);
+
+        }
     }
 }

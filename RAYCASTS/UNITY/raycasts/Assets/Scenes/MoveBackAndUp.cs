@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MoveBackAndUp : MoveBack
 {
-    public override void Hit()
+    public override void Hit(HitType hit)
     {
-        base.Hit();
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+        base.Hit(hit);
+        if(hit is PlayerHit){
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + hit.getForce());
+        }
     }
 }

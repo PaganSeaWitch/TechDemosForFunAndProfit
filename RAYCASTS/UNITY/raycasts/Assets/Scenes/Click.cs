@@ -18,7 +18,9 @@ public class Click : MonoBehaviour
                 Hittable hittable = objectHit.GetComponentInChildren<Hittable>();
                 if(hittable != null)
                 {
-                    hittable.Hit();
+                    PlayerHit hittype = new PlayerHit();
+                    hittype.setForce(1);
+                    hittable.Hit(hittype);
                 }
             }
         }

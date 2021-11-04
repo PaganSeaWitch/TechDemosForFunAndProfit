@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class Hittable : MonoBehaviour
 {
 
-    public virtual void Hit() { Debug.Log("HIT!" + gameObject.GetInstanceID());}
+    public virtual void Hit(HitType hit) { Debug.Log("HIT by " + hit.getHitType() + " with a force of " + hit.getForce());}
 }
