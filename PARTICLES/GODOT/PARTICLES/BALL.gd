@@ -12,7 +12,10 @@ extends RigidBody2D
 
 
 
-func _on_BALL_body_entered(body):
+
+
+
+func _on_BALL_body_shape_entered(body_id, body, body_shape, local_shape):
 	print("something explodes")
 	if(body.has_method("explode")):
 		print("something explodes")

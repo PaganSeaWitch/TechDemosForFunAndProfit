@@ -5,25 +5,23 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 0.979893
 
-[sub_resource type="SphereMesh" id=2]
-
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0.298039, 0.0392157, 0.0392157, 1, 0.788235, 0.443137, 0.443137, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="Curve" id=6]
-_data = [ Vector2( 0.0744681, 0.457055 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0260736 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=7]
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 70.0
+initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 84.61
@@ -31,31 +29,31 @@ linear_accel_random = 0.26
 radial_accel = 16.92
 damping = 50.0
 angle = 270.0
-angle_random = 0.33
-scale_random = 1.0
-scale_curve = SubResource( 7 )
-color_ramp = SubResource( 5 )
+angle_random = 0.68
+scale = 3.0
+scale_random = 0.79
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[sub_resource type="SphereMesh" id=2]
 
 [node name="PEG" type="StaticBody2D"]
-position = Vector2( 201.718, 203.59 )
 scale = Vector2( 150, 150 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D" type="MeshInstance2D" parent="CollisionShape2D"]
-scale = Vector2( 1, 1 )
-mesh = SubResource( 2 )
-
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Particles2D" type="Particles2D" parent="CollisionShape2D"]
 scale = Vector2( 0.2, 0.15 )
 emitting = false
 amount = 75
-lifetime = 0.5
+lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
 randomness = 0.56
 visibility_rect = Rect2( 0, 0, 0, 0 )
-process_material = SubResource( 3 )
+process_material = SubResource( 7 )
+
+[node name="StaticBody2D" type="MeshInstance2D" parent="CollisionShape2D"]
+mesh = SubResource( 2 )
