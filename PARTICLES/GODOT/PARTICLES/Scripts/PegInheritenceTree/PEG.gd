@@ -26,6 +26,7 @@ func changeColor(colorArray):
 		get_parent().move_child(yellowPeg, self.get_index())
 		yellowPeg.position = self.position
 		yellowPeg.addHit(self.hasHits)
+		yellowPeg.emit()
 		self.queue_free()
 		get_parent().remove_child(self)
 

@@ -7,19 +7,19 @@
 position = Vector2( 0.666672, 0 )
 
 [node name="PEG" parent="." instance=ExtResource( 1 )]
-position = Vector2( 133.635, 78.3991 )
+position = Vector2( 67.635, 244.399 )
 
 [node name="PEG2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 223.913, 147.295 )
+position = Vector2( 257.246, 405.962 )
 
 [node name="PEG3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 180.555, 187.683 )
+position = Vector2( 181.888, 475.683 )
 
 [node name="PEG4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 140.168, 138.386 )
+position = Vector2( 118.168, 408.386 )
 
 [node name="PEG5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 236.979, 86.7141 )
+position = Vector2( 310.979, 249.381 )
 
 [node name="BALL" parent="." instance=ExtResource( 2 )]
 position = Vector2( 186.539, 51.4419 )
