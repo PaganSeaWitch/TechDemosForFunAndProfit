@@ -8,10 +8,38 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "PachinkoBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/BALL.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Peg",
+"language": "GDScript",
+"path": "res://Scripts/PegInheritenceTree/PEG.gd"
+}, {
+"base": "Peg",
+"class": "YellowPeg",
+"language": "GDScript",
+"path": "res://Scripts/PegInheritenceTree/YellowPeg.gd"
+}, {
+"base": "PachinkoBall",
+"class": "YellowPegBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/YellowPegBall.gd"
+} ]
+_global_script_class_icons={
+"PachinkoBall": "",
+"Peg": "",
+"YellowPeg": "",
+"YellowPegBall": ""
+}
+
 [application]
 
 config/name="PlinkoPanic2.0"
-run/main_scene="res://plinko.tscn"
+run/main_scene="res://Scenes/plinko.tscn"
 config/icon="res://icon.png"
 
 [physics]

@@ -1,5 +1,5 @@
-extends CollisionShape2D
-
+extends Peg
+class_name YellowPeg
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,5 +12,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func explode():
-	print("something expldoes")
+#func _process(delta):
+#	pass

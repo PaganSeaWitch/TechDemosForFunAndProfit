@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/PEG.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/PegInheritenceTree/YellowPeg.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.831373, 0.807843, 0.0666667, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="PEG" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" parent="CollisionShape2D" index="1"]
+texture = SubResource( 2 )
