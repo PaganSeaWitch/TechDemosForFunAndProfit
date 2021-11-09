@@ -4,10 +4,12 @@
 [ext_resource path="res://Scripts/PegInheritenceTree/YellowPeg.gd" type="Script" id=2]
 
 [sub_resource type="Gradient" id=1]
+resource_local_to_scene = true
 offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 0.831373, 0.807843, 0.0666667, 1 )
+colors = PoolColorArray( 1, 1, 0, 1 )
 
 [sub_resource type="GradientTexture" id=2]
+resource_local_to_scene = true
 gradient = SubResource( 1 )
 
 [node name="PEG" instance=ExtResource( 1 )]

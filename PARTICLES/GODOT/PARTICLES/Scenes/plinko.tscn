@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/PEG.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/BALL.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/YellowPaintBall.tscn" type="PackedScene" id=2]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0.666672, 0 )
@@ -22,4 +22,4 @@ position = Vector2( 140.168, 138.386 )
 position = Vector2( 236.979, 86.7141 )
 
 [node name="BALL" parent="." instance=ExtResource( 2 )]
-position = Vector2( 178.774, 63.5508 )
+position = Vector2( 186.539, 51.4419 )

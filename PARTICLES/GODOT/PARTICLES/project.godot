@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/BallInheritenceTree/BALL.gd"
 }, {
+"base": "PachinkoBall",
+"class": "PaintBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/PaintBall.gd"
+}, {
+"base": "PaintBall",
+"class": "PaintYellowBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/PaintYellowBall.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Peg",
 "language": "GDScript",
@@ -31,6 +41,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "PachinkoBall": "",
+"PaintBall": "",
+"PaintYellowBall": "",
 "Peg": "",
 "YellowPeg": "",
 "YellowPegBall": ""

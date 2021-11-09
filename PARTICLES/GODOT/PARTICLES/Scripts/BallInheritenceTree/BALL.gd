@@ -8,10 +8,9 @@ func _ready():
 	hitAmt = 1
 
 func _on_BALL_body_shape_entered(body_id, body, body_shape, local_shape):
-	print("hit someting")
 	if(body.is_in_group("Pegs")):
 		ResolvePegHit(body);
-	
+
 
 func ResolvePegHit(peg):
 	if(peg.has_method("emit")):

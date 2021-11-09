@@ -13,7 +13,7 @@ func _ready():
 func _on_BALL_body_shape_entered(body_id, body, body_shape, local_shape):
 	._on_BALL_body_shape_entered(body_id, body, body_shape, local_shape)
 	if(body is worksOn):
-		print("acting on yellow Peg")
+		self.ResolvePegHit(body)
 	
 
 
