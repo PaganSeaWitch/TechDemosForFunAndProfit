@@ -1,11 +1,15 @@
 extends RigidBody2D
 class_name PachinkoBall
 
-var worksOn 
+
 var hitAmt
+var payloadDictionary = {}
+
+
 func _ready():
-	worksOn = Peg
+
 	hitAmt = 1
+
 
 func _on_BALL_body_shape_entered(body_id, body, body_shape, local_shape):
 	if(body.is_in_group("Pegs")):
