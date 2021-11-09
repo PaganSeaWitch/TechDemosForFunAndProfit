@@ -4,4 +4,5 @@
 [ext_resource path="res://Scenes/Ball Scenes/Paint Balls/PaintBall.tscn" type="PackedScene" id=2]
 
 [node name="BALL" instance=ExtResource( 2 )]
+contacts_reported = 1
 script = ExtResource( 1 )
