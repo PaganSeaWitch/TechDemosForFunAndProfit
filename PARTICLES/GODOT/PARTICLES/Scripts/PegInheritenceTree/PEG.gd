@@ -9,7 +9,7 @@ signal changeColor(colorArray)
 var hitsAllowed = 5
 var hasHits = 0
 
-var yellowPegScene = load("res://Scenes//YellowPeg.tscn")
+var yellowPegScene = load("res://Scenes//Peg Scenes//YellowPeg.tscn")
 
 
 func emit():
