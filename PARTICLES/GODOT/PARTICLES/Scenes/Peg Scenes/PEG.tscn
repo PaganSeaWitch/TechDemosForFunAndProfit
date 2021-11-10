@@ -1,93 +1,27 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Misc/particles.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/PegInheritenceTree/PEG.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/minecraft/Minecraft.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scripts/Misc/hitTracker.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/PegInheritenceTree/TextTimer.gd" type="Script" id=5]
 
-[sub_resource type="GDScript" id=11]
-script/source = "extends StaticBody2D
-class_name Peg
-
-signal emitParticles
-signal addHit(amt)
-signal startTextTimer
-signal getDarker(amt)
-signal changeColor(colorArray)
-var hitsAllowed = 5
-var hasHits = 0
-
-var yellowPegScene = load(\"res://Scenes//Peg Scenes//YellowPeg.tscn\")
-
-
-func emit():
-	self.emit_signal(\"emitParticles\")
-
-
-func changeColor(colorArray):
-	var color : Color
-	if(colorArray.size() > 1):
-		var rand = rand_range(0, colorArray.size())
-		color = colorArray[rand]
-	else:
-		color = colorArray[0]
-	var peg;
-	match color:
-		Color(255, 255, 0):
-			peg = yellowPegScene.instance()
-		_:
-			peg = self
-	changePeg(peg)
-
-
-func resetAndRemove():
-	self.get_child(0).visible = false
-	self.get_child(0).set_deferred(\"disabled\", true)
-	hasHits = 0
-	self.emit_signal(\"startTextTimer\")
-	self.emit_signal(\"getDarker\", 1)
-
-
-func addHit(hitAmt):
-	hasHits += hitAmt;
-	self.emit_signal(\"addHit\", hasHits)
-	self.emit_signal(\"getDarker\", hasHits)
-	if(hasHits >= hitsAllowed):
-		resetAndRemove()
-		
-
-
-func changePeg(peg):
-	get_parent().add_child(peg)
-	get_parent().move_child(peg, self.get_index())
-	peg.position = self.position
-	peg.addHit(self.hasHits)
-	peg.emit()
-	self.queue_free()
-	get_parent().remove_child(self)
-
-
-func place():
-	self.get_child(0).visible = true
-	self.get_child(0).set_deferred(\"disabled\", false)
-"
-
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 5.00425
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0.298039, 0.0392157, 0.0392157, 1, 0.788235, 0.443137, 0.443137, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0260736 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=7]
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
@@ -102,22 +36,22 @@ angle = 270.0
 angle_random = 0.68
 scale = 6.0
 scale_random = 0.79
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
 
-[sub_resource type="SphereMesh" id=12]
+[sub_resource type="SphereMesh" id=8]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=9]
 resource_local_to_scene = true
 offsets = PoolRealArray( 1.38729e-43 )
 colors = PoolColorArray( 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=13]
+[sub_resource type="GradientTexture" id=10]
 resource_local_to_scene = true
-gradient = SubResource( 8 )
+gradient = SubResource( 9 )
 width = 1
 
-[sub_resource type="GDScript" id=14]
+[sub_resource type="GDScript" id=11]
 script/source = "extends MeshInstance2D
 
 
@@ -151,17 +85,22 @@ func _on_PEG_getDarker(amt):
 
 "
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=12]
 size = 8
 use_mipmaps = true
 font_data = ExtResource( 3 )
 
-[node name="PEG" type="StaticBody2D" groups=["Pegs"]]
+[sub_resource type="CircleShape2D" id=13]
+radius = 4.83137
+
+[node name="PEG" type="StaticBody2D" groups=[
+"Pegs",
+]]
 scale = Vector2( 5, 5 )
-script = SubResource( 11 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="CollisionShape2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -172,14 +111,14 @@ one_shot = true
 explosiveness = 1.0
 randomness = 0.56
 visibility_rect = Rect2( 0, 0, 0, 0 )
-process_material = SubResource( 6 )
+process_material = SubResource( 7 )
 script = ExtResource( 1 )
 
 [node name="StaticBody2D" type="MeshInstance2D" parent="CollisionShape2D"]
 scale = Vector2( 5, 5 )
-mesh = SubResource( 12 )
-texture = SubResource( 13 )
-script = SubResource( 14 )
+mesh = SubResource( 8 )
+texture = SubResource( 10 )
+script = SubResource( 11 )
 
 [node name="Control" type="Control" parent="."]
 margin_left = -4.0
@@ -199,8 +138,8 @@ margin_left = -1.0
 margin_top = -3.0
 margin_right = 5.0
 margin_bottom = 4.0
+custom_fonts/normal_font = SubResource( 12 )
 custom_colors/default_color = Color( 0.513726, 0.0862745, 0.0862745, 1 )
-custom_fonts/normal_font = SubResource( 10 )
 meta_underlined = false
 scroll_active = false
 script = ExtResource( 4 )
@@ -213,8 +152,16 @@ wait_time = 0.25
 one_shot = true
 script = ExtResource( 5 )
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 13 )
+
 [connection signal="addHit" from="." to="Control/RichTextLabel" method="_on_PEG_addHit"]
 [connection signal="emitParticles" from="." to="CollisionShape2D/Particles2D" method="_on_PEG_emitParticles"]
 [connection signal="getDarker" from="." to="CollisionShape2D/StaticBody2D" method="_on_PEG_getDarker"]
 [connection signal="startTextTimer" from="." to="Timer" method="_on_PEG_startTextTimer"]
 [connection signal="timeout" from="Timer" to="Control/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

@@ -22,8 +22,14 @@ position = Vector2( 343.333, 75 )
 [node name="Area2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 317.333, 606 )
 
-[node name="Node2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 49.3333, 158 )
-scale = Vector2( 45, 20 )
+[node name="RandomPegZone" parent="." instance=ExtResource( 1 )]
+position = Vector2( 103.905, 124.257 )
+scale = Vector2( 40, 10 )
+minPeg = 5
+maxPeg = 5
+
+[node name="RandomPegZone2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 102.678, 362.448 )
+scale = Vector2( 40, 10 )
 minPeg = 5
 maxPeg = 5

@@ -62,3 +62,6 @@ func changePeg(peg):
 func place():
 	self.get_child(0).visible = true
 	self.get_child(0).set_deferred("disabled", false)
+
+func _on_Area2D_area_entered(area):
+	self.queue_free()
