@@ -53,6 +53,7 @@ func changePeg(peg):
 	get_parent().add_child(peg)
 	get_parent().move_child(peg, self.get_index())
 	peg.position = self.position
+	peg.set_scale(self.get_scale())
 	peg.addHit(self.hasHits)
 	peg.emit()
 	self.queue_free()
@@ -64,4 +65,5 @@ func place():
 	self.get_child(0).set_deferred("disabled", false)
 
 func _on_Area2D_area_entered(area):
+	#print('removed self cuz overlap')
 	self.queue_free()

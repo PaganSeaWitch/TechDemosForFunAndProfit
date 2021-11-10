@@ -91,12 +91,12 @@ use_mipmaps = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 4.83137
+radius = 5.25273
 
 [node name="PEG" type="StaticBody2D" groups=[
 "Pegs",
 ]]
-scale = Vector2( 5, 5 )
+scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

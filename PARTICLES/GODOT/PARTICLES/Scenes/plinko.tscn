@@ -12,24 +12,18 @@ bounce = 10.0
 position = Vector2( 0.666672, 0 )
 
 [node name="BALL" parent="." instance=ExtResource( 2 )]
-position = Vector2( 659.333, 68 )
+position = Vector2( 770.056, 29.6702 )
 physics_material_override = SubResource( 1 )
 contacts_reported = 1
 
 [node name="BALL2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 343.333, 75 )
+position = Vector2( 256.124, 40.1166 )
 
 [node name="Area2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 317.333, 606 )
 
-[node name="RandomPegZone" parent="." instance=ExtResource( 1 )]
-position = Vector2( 103.905, 124.257 )
-scale = Vector2( 40, 10 )
-minPeg = 5
-maxPeg = 5
-
-[node name="RandomPegZone2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 102.678, 362.448 )
-scale = Vector2( 40, 10 )
+[node name="RandomPegZone3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 618.21, 117.458 )
+scale = Vector2( 20, 20 )
 minPeg = 5
 maxPeg = 5
