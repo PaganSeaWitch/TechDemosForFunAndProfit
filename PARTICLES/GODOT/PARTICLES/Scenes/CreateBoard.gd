@@ -24,6 +24,6 @@ func _on_Node2D_setStuffs(upperLeft, upperRight, bottomLeft, BottomRight, minPeg
 		self.add_child(newPeg)
 		newPeg.global_position = Vector2(x,y)
 		newPeg.set_scale(Vector2(oldScale.x * 1/scale.x ,oldScale.y * 1/scale.y ))
-		print(maxX)
 		pegs.append(self.to_local(Vector2(x,y)))
+
 	emit_signal("mirrorThis", pegs)

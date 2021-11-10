@@ -17,3 +17,4 @@ func _on_FirstHalf_mirrorThis(pegs):
 		newPeg.set_scale(Vector2(oldScale.x * 1/scale.x ,oldScale.y * 1/scale.y ))
 		newPeg.position = Vector2(pegs[n].x * -1, pegs[n].y)
 
+

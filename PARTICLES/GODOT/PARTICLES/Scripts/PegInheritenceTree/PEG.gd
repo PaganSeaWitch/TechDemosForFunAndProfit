@@ -65,5 +65,4 @@ func place():
 	self.get_child(0).set_deferred("disabled", false)
 
 func _on_Area2D_area_entered(area):
-	#print('removed self cuz overlap')
 	self.queue_free()
