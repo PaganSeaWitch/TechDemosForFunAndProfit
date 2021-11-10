@@ -17,8 +17,10 @@ func _ready():
 
 
 func _on_BALL_mouse_entered():
+	print('turn on')
 	self.visible = true
 
 
 func _on_BALL_mouse_exited():
-		self.visible = false
+	self.visible = false
+

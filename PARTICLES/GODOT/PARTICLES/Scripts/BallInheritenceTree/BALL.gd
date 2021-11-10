@@ -24,3 +24,7 @@ func ResolvePegHit(peg):
 
 func flipGravity():
 	self.gravity_scale = -1 * self.gravity_scale
+
+func _physics_process(delta):
+	get_parent().get_child(0).global_position = self.global_position
+

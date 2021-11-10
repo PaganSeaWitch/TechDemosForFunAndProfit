@@ -5,45 +5,73 @@
 [ext_resource path="res://Scenes/Ball Scenes/BallInfo.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/preview/Preview.otf" type="DynamicFontData" id=4]
 
-[sub_resource type="PhysicsMaterial" id=1]
-bounce = 1.0
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 4 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="PhysicsMaterial" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
 radius = 1.01718
 
-[sub_resource type="SphereMesh" id=3]
+[sub_resource type="SphereMesh" id=2]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.00431034 )
 colors = PoolColorArray( 0.537255, 0.0980392, 0.0980392, 1, 0.388235, 0.12549, 0.12549, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 width = 1
 
-[sub_resource type="DynamicFont" id=6]
-font_data = ExtResource( 4 )
+[node name="BALL" type="Node2D"]
 
-[node name="BALL" type="RigidBody2D" groups=[
-"Balls",
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Node2D"]
+visible = false
+margin_left = -98.0
+margin_top = -94.0
+margin_right = 74.0
+margin_bottom = -19.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D/Control"]
+anchor_left = 0.203
+anchor_top = 0.497
+anchor_right = 1.023
+anchor_bottom = 1.0
+margin_left = -0.0320663
+margin_top = -0.0340424
+margin_right = -0.072052
+margin_bottom = 0.240959
+custom_fonts/normal_font = SubResource( 5 )
+text = "Generic Ball
+Does Nothing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BALL" type="RigidBody2D" parent="." groups=[
+"Ball",
 ]]
 input_pickable = true
-mass = 1668.54
-physics_material_override = SubResource( 1 )
-gravity_scale = 10.0
+physics_material_override = SubResource( 6 )
 contacts_reported = 5
 contact_monitor = true
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BALL"]
 scale = Vector2( 10, 10 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
-[node name="mesh" type="MeshInstance2D" parent="CollisionShape2D"]
-mesh = SubResource( 3 )
-texture = SubResource( 5 )
+[node name="mesh" type="MeshInstance2D" parent="BALL/CollisionShape2D"]
+mesh = SubResource( 2 )
+texture = SubResource( 4 )
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BALL"]
 rotation = 3.14159
 scale = Vector2( 0.1, 0.1 )
 amount = 2
@@ -67,33 +95,6 @@ scale_amount = 0.1
 scale_amount_random = 0.15
 color = Color( 0.945098, 0.0941176, 0.0941176, 1 )
 
-[node name="Control" type="Control" parent="."]
-visible = false
-margin_left = -98.0
-margin_top = -94.0
-margin_right = 74.0
-margin_bottom = -19.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
-anchor_left = 0.203
-anchor_top = 0.497
-anchor_right = 1.023
-anchor_bottom = 1.0
-margin_left = -0.0320663
-margin_top = -0.0340424
-margin_right = -0.072052
-margin_bottom = 0.240959
-custom_fonts/normal_font = SubResource( 6 )
-text = "Generic Ball
-Does Nothing"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="body_shape_entered" from="." to="." method="_on_BALL_body_shape_entered"]
-[connection signal="mouse_entered" from="." to="Control" method="_on_BALL_mouse_entered"]
-[connection signal="mouse_exited" from="." to="Control" method="_on_BALL_mouse_exited"]
+[connection signal="body_shape_entered" from="BALL" to="BALL" method="_on_BALL_body_shape_entered"]
+[connection signal="mouse_entered" from="BALL" to="Node2D/Control" method="_on_BALL_mouse_entered"]
+[connection signal="mouse_exited" from="BALL" to="Node2D/Control" method="_on_BALL_mouse_exited"]
