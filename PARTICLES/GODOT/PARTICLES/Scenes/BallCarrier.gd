@@ -15,7 +15,7 @@ signal dropNext
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	to = Vector2(1054.036,953.508)
-
+	from = get_child(currentContainer)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
