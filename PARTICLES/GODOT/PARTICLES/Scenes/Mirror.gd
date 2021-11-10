@@ -1,24 +1,17 @@
 extends Node2D
 
-
+signal AttachPegs(pegs)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var peg = load("Scenes//Peg Scenes//PEG.tscn") 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+var peg = load("Scenes//Peg Scenes//PEG.tscn")
 
 
 func _on_FirstHalf_mirrorThis(pegs):
+	var scale = get_parent().get_scale()
+	self.set_scale(Vector2(1/scale.x, 1/scale.y))
 	for n in range(pegs.size()):
 		var newPeg = peg.instance()
-		newPeg.position.x = pegs[n].position.x * -1
-		newPeg.position.y = pegs[n].position.y
 		self.add_child(newPeg)
+		newPeg.position = Vector2(pegs[n].x * -1, pegs[n].y)
+		newPeg.global_position.y = pegs[n].y

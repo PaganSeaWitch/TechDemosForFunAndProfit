@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scenes/Mirror.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/CreateBoard.gd" type="Script" id=2]
-[ext_resource path="res://tempArea.tscn" type="PackedScene" id=3]
-[ext_resource path="res://RandomPegZone.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/tempArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/RandomPegZone.gd" type="Script" id=4]
 
-[node name="Node2D" type="Node2D"]
+[node name="RandomPegZone" type="Node2D"]
 script = ExtResource( 4 )
 minPeg = 1
 maxPeg = 1

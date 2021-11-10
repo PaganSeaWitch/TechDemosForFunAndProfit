@@ -24,9 +24,8 @@ func _on_PEG_getDarker(amt):
 	var newRed = startingRed/amt;
 	var newBlue = startingBlue/amt;
 	var newGreen = startingGreen/amt;
-	print("new color: R: "+ String(newRed) +" B: "+ String(newBlue)+" G: " +String(newGreen))
 	self.texture.gradient.set_color(0, Color(newRed,newGreen, newBlue));
-	print(self.texture.gradient.get_color(0))
+
 
 
 

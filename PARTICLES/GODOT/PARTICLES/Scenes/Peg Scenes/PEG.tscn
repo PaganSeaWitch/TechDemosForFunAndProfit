@@ -144,9 +144,8 @@ func _on_PEG_getDarker(amt):
 	var newRed = startingRed/amt;
 	var newBlue = startingBlue/amt;
 	var newGreen = startingGreen/amt;
-	print(\"new color: R: \"+ String(newRed) +\" B: \"+ String(newBlue)+\" G: \" +String(newGreen))
 	self.texture.gradient.set_color(0, Color(newRed,newGreen, newBlue));
-	print(self.texture.gradient.get_color(0))
+
 
 
 
@@ -157,9 +156,7 @@ size = 8
 use_mipmaps = true
 font_data = ExtResource( 3 )
 
-[node name="PEG" type="StaticBody2D" groups=[
-"Pegs",
-]]
+[node name="PEG" type="StaticBody2D" groups=["Pegs"]]
 scale = Vector2( 5, 5 )
 script = SubResource( 11 )
 
@@ -202,8 +199,8 @@ margin_left = -1.0
 margin_top = -3.0
 margin_right = 5.0
 margin_bottom = 4.0
-custom_fonts/normal_font = SubResource( 10 )
 custom_colors/default_color = Color( 0.513726, 0.0862745, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 10 )
 meta_underlined = false
 scroll_active = false
 script = ExtResource( 4 )
