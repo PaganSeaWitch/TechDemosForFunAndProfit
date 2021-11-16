@@ -31,7 +31,7 @@ public class dragMe : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
     private void SetDraggedPosition(PointerEventData data)
     {
        
-        m_DraggingPlane = data.pointerEnter.transform as RectTransform;
+        gameObject.GetComponent<RectTransform>() = data.pointerEnter.transform as RectTransform;
 
         
     }
