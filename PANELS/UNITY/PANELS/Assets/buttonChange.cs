@@ -9,6 +9,12 @@ public class buttonChange : MonoBehaviour
 
     [SerializeField]
     public GameObject scroll;
+
+    [SerializeField]
+    public GameObject drag;
+
+    [SerializeField]
+    public GameObject boxes;
     public void SwitchPanel(string type)
     {
         
@@ -26,6 +32,16 @@ public class buttonChange : MonoBehaviour
         if(type == "scroll")
         {
             GameObject obj = Instantiate(scroll, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+
+        }
+        if (type == "drag")
+        {
+            GameObject obj = Instantiate(drag, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+
+        }
+        if (type == "boxes")
+        {
+            GameObject obj = Instantiate(boxes, gameObject.transform.position, Quaternion.identity, gameObject.transform);
 
         }
     }

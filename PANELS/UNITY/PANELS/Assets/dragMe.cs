@@ -30,10 +30,10 @@ public class dragMe : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
 
     private void SetDraggedPosition(PointerEventData data)
     {
-       
-        gameObject.GetComponent<RectTransform>() = data.pointerEnter.transform as RectTransform;
 
-        
+        transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
