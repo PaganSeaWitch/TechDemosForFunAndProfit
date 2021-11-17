@@ -1,0 +1,165 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scripts/Misc/particles.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/PegInheritenceTree/PEG.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/minecraft/Minecraft.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/Misc/hitTracker.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/PegInheritenceTree/TextTimer.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.00425
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.298039, 0.0392157, 0.0392157, 1, 0.788235, 0.443137, 0.443137, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0260736 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 400.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 84.61
+linear_accel_random = 0.26
+radial_accel = 16.92
+damping = 50.0
+angle = 270.0
+angle_random = 0.68
+scale = 6.0
+scale_random = 0.79
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="SphereMesh" id=7]
+
+[sub_resource type="Gradient" id=8]
+resource_local_to_scene = true
+offsets = PoolRealArray( 1.38729e-43 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+resource_local_to_scene = true
+gradient = SubResource( 8 )
+width = 1
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends MeshInstance2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+
+var startingRed
+var startingBlue
+var startingGreen
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	var color = self.texture.gradient.get_color(0)
+	startingRed = color.r
+	startingBlue = color.b
+	startingGreen = color.g
+
+
+func _on_PEG_getDarker(amt):
+	var newRed = startingRed/amt;
+	var newBlue = startingBlue/amt;
+	var newGreen = startingGreen/amt;
+	self.texture.gradient.set_color(0, Color(newRed,newGreen, newBlue));
+
+
+
+
+"
+
+[sub_resource type="DynamicFont" id=11]
+size = 8
+use_mipmaps = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 5.25273
+
+[node name="PEG" type="StaticBody2D" groups=["Pegs"]]
+scale = Vector2( 3, 3 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="CollisionShape2D"]
+scale = Vector2( 0.5, 0.5 )
+emitting = false
+amount = 75
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+randomness = 0.56
+visibility_rect = Rect2( 0, 0, 0, 0 )
+process_material = SubResource( 6 )
+script = ExtResource( 1 )
+
+[node name="StaticBody2D" type="MeshInstance2D" parent="CollisionShape2D"]
+scale = Vector2( 5, 5 )
+mesh = SubResource( 7 )
+texture = SubResource( 9 )
+script = SubResource( 10 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1.0
+margin_top = -3.0
+margin_right = 5.0
+margin_bottom = 4.0
+custom_colors/default_color = Color( 0.513726, 0.0862745, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 11 )
+meta_underlined = false
+scroll_active = false
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+script = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 12 )
+
+[connection signal="addHit" from="." to="Control/RichTextLabel" method="_on_PEG_addHit"]
+[connection signal="emitParticles" from="." to="CollisionShape2D/Particles2D" method="_on_PEG_emitParticles"]
+[connection signal="getDarker" from="." to="CollisionShape2D/StaticBody2D" method="_on_PEG_getDarker"]
+[connection signal="startTextTimer" from="." to="Timer" method="_on_PEG_startTextTimer"]
+[connection signal="timeout" from="Timer" to="Control/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

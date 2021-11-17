@@ -1,0 +1,98 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "PachinkoBall",
+"class": "ActionBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/ActionBall.gd"
+}, {
+"base": "BallResource",
+"class": "ActionBallResource",
+"language": "GDScript",
+"path": "res://ActionBallResource.gd"
+}, {
+"base": "Resource",
+"class": "BallResource",
+"language": "GDScript",
+"path": "res://BallResource.gd"
+}, {
+"base": "RigidBody2D",
+"class": "PachinkoBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/BALL.gd"
+}, {
+"base": "PachinkoBall",
+"class": "PaintBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/PaintBall.gd"
+}, {
+"base": "BallResource",
+"class": "PaintBallResource",
+"language": "GDScript",
+"path": "res://PaintBallResource.gd"
+}, {
+"base": "PaintBall",
+"class": "PaintYellowBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/PaintYellowBall.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Peg",
+"language": "GDScript",
+"path": "res://Scripts/PegInheritenceTree/PEG.gd"
+}, {
+"base": "Peg",
+"class": "YellowPeg",
+"language": "GDScript",
+"path": "res://Scripts/PegInheritenceTree/YellowPeg.gd"
+}, {
+"base": "ActionBall",
+"class": "YellowPegBall",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/YellowPegBall.gd"
+}, {
+"base": "YellowPegBall",
+"class": "YellowPegMoneyball",
+"language": "GDScript",
+"path": "res://Scripts/BallInheritenceTree/YellowPegMoneyBall.gd"
+} ]
+_global_script_class_icons={
+"ActionBall": "",
+"ActionBallResource": "",
+"BallResource": "",
+"PachinkoBall": "",
+"PaintBall": "",
+"PaintBallResource": "",
+"PaintYellowBall": "",
+"Peg": "",
+"YellowPeg": "",
+"YellowPegBall": "",
+"YellowPegMoneyball": ""
+}
+
+[application]
+
+config/name="PlinkoPanic2.0"
+run/main_scene="res://Scenes/plinko.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Mirror.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/CreateBoard.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/tempArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/RandomPegZone.gd" type="Script" id=4]
+
+[node name="RandomPegZone" type="Node2D"]
+z_as_relative = false
+script = ExtResource( 4 )
+minPeg = 1
+maxPeg = 1
+
+[node name="FirstHalf" type="Node2D" parent="."]
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="SecondHalf" type="Node2D" parent="."]
+position = Vector2( 20, 0 )
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="tempArea" parent="." instance=ExtResource( 3 )]
+z_as_relative = false
+
+[connection signal="setStuffs" from="." to="FirstHalf" method="_on_Node2D_setStuffs"]
+[connection signal="mirrorThis" from="FirstHalf" to="SecondHalf" method="_on_FirstHalf_mirrorThis"]
+[connection signal="givePos" from="tempArea" to="." method="_on_tempArea_givePos"]

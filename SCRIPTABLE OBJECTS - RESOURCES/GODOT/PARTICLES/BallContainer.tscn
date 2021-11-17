@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ballCatcher.tscn" type="PackedScene" id=2]
+
+[node name="BallContainer" type="Node2D"]
+
+[node name="Wall4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 37.1947, 44.0617 )
+scale = Vector2( 2, 4 )
+
+[node name="Wall5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -41.1954, 43.2932 )
+scale = Vector2( 2, 4 )
+
+[node name="ballCatcher" parent="." instance=ExtResource( 2 )]
+position = Vector2( -248.438, -935.385 )
