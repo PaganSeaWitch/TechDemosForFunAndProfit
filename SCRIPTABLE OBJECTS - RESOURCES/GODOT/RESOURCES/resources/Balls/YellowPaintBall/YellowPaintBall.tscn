@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/Balls/YellowPaintBall/PaintYellowBall.gd" type="Script" id=1]
+[ext_resource path="res://resources/Balls/PaintBall/PaintBall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBallResource.tres" type="Resource" id=4]
+
+[node name="Yellow Paint Ball" groups=[
+"Balls",
+] instance=ExtResource( 2 )]
+
+[node name="BALL" parent="." index="0"]
+script = ExtResource( 1 )
+ballResource = ExtResource( 4 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="1"]
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+amount = 2
+lifetime = 1.5
+speed_scale = 4.29
+randomness = 0.07
+local_coords = false
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 100, -100 )
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( -0.2, -0.98 )
+angular_velocity = 41.44
+angular_velocity_random = 0.21
+linear_accel = 48.92
+linear_accel_random = 0.16
+angle = 97.3
+angle_random = 1.0
+scale_amount = 0.1
+scale_amount_random = 0.15
+color = Color( 0.945098, 0.0941176, 0.0941176, 1 )

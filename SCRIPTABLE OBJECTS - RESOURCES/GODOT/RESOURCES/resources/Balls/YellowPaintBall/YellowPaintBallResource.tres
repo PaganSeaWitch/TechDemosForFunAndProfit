@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://resources/Balls/PaintBall/PaintBallResource.gd" type="Script" id=1]
+[ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBallTexture.tres" type="Texture" id=2]
+[ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBallPhysics.tres" type="PhysicsMaterial" id=3]
+[ext_resource path="res://resources/Pegs/Yellow Peg/YellowPeg.gd" type="Script" id=4]
+[ext_resource path="res://resources/Pegs/Yellow Peg/YellowPeg.tscn" type="PackedScene" id=5]
+
+[resource]
+script = ExtResource( 1 )
+physicsMaterial = ExtResource( 3 )
+texture = ExtResource( 2 )
+gravityScale = 10
+size = 1
+payload = {
+}
+hitsFor = 1
+name = "YELLOW PAINT BALL"
+description = "COLORS PEGS YELLOW"
+colorArray = [ ExtResource( 5 ) ]
+colorTypeArray = [ ExtResource( 4 ) ]
