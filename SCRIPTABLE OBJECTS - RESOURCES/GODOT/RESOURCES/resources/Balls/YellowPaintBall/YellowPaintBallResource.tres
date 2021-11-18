@@ -11,11 +11,11 @@ script = ExtResource( 1 )
 physicsMaterial = ExtResource( 3 )
 texture = ExtResource( 2 )
 gravityScale = 10
-size = 1
+scale = Vector2( 10, 10 )
 payload = {
 }
 hitsFor = 1
-name = "YELLOW PAINT BALL"
-description = "COLORS PEGS YELLOW"
+name = "[shake rate=5 level=10][center]YELLOW PAINT BALL[/center][/shake]"
+description = "[center]COLORS PEGS YELLOW[/center]"
 colorArray = [ ExtResource( 5 ) ]
 colorTypeArray = [ ExtResource( 4 ) ]

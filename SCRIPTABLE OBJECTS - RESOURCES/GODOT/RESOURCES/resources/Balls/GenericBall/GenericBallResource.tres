@@ -10,7 +10,7 @@ script = ExtResource( 1 )
 physicsMaterial = ExtResource( 2 )
 texture = ExtResource( 3 )
 gravityScale = 10
-scale = Vector2( 1, 1 )
+scale = Vector2( 10, 10 )
 payload = {
 }
 hitsFor = 1

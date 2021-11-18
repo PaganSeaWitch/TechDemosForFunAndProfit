@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://MISC/reallySimpleScripts/particles.gd" type="Script" id=1]
 [ext_resource path="res://resources/Pegs/Generic Peg/PEG.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/minecraft/Minecraft.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://MISC/reallySimpleScripts/hitTracker.gd" type="Script" id=4]
-[ext_resource path="res://MISC/PegInheritenceTree/TextTimer.gd" type="Script" id=5]
+[ext_resource path="res://MISC/reallySimpleScripts/TextTimer.gd" type="Script" id=5]
+[ext_resource path="res://resources/Pegs/Generic Peg/PegResource.tres" type="Resource" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.00425
@@ -98,6 +99,7 @@ radius = 5.25273
 ]]
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
+pegResource = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

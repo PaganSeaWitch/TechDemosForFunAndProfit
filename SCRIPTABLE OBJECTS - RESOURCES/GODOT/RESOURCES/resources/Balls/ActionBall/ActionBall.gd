@@ -10,7 +10,7 @@ var worksOnArray
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var resource = ballResource 
+	var resource = ballResource as ActionBallResource
 	self.worksOnArray = resource.worksOnArray
 
 func ResolvePegHit(peg):

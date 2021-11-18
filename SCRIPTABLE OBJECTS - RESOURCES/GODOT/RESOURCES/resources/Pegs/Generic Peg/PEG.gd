@@ -6,11 +6,13 @@ signal addHit(amt)
 signal startTextTimer
 signal getDarker(amt)
 signal changeColor(colorArray)
-var hitsAllowed = 5
+var hitsAllowed
 var hasHits = 0
+export(Resource) var pegResource
 
-
-
+func _ready():
+	var resource = pegResource as PegResource
+	self.hitsAllowed = resource.hitsAllowed
 
 func emit():
 	self.emit_signal("emitParticles")

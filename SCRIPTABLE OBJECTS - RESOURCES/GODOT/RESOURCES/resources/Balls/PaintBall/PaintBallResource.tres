@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://PaintBallResource.gd" type="Script" id=1]
+[ext_resource path="res://resources/Balls/PaintBall/PaintBallResource.gd" type="Script" id=1]
 [ext_resource path="res://resources/Balls/PaintBall/PaintBallTexture.tres" type="Texture" id=2]
 [ext_resource path="res://resources/Balls/PaintBall/PaintBallPhysics.tres" type="PhysicsMaterial" id=3]
 
@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 physicsMaterial = ExtResource( 3 )
 texture = ExtResource( 2 )
 gravityScale = 10
-size = 1
+scale = Vector2( 10, 10 )
 payload = {
 }
 hitsFor = 1

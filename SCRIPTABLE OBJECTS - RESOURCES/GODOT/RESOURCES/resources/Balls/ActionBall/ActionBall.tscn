@@ -9,3 +9,9 @@
 [node name="BALL" parent="." index="0"]
 script = ExtResource( 2 )
 ballResource = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="BALL" index="0"]
+scale = Vector2( 10, 10 )
+
+[node name="CPUParticles2D" parent="BALL" index="1"]
+visible = true
