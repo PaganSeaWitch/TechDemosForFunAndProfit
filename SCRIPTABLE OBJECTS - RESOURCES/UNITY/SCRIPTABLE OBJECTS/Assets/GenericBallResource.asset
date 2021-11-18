@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5852f7b9c4d1a64caf0aebd54f9dbf7, type: 3}
+  m_Name: GenericBallResource
+  m_EditorClassIdentifier: 
+  hitsFor: 1
+  scale: {x: 1, y: 1, z: 1}
+  gravity_scale: 10
+  physicMaterial: {fileID: 6200000, guid: 8edf4ed239f540b42a638743d5d03a5b, type: 2}
+  ballName: Generic Ball
+  description: Does Nothing
+  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  particlePreset: {fileID: 2655988077585873504, guid: e2fe7080f909dab49890e451f06cf416, type: 2}
