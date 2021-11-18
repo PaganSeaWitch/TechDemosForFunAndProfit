@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MISC/Peg Board/RandomPegZoneTake2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EnemeyPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MISC/GarbageCollector/GarbageCollector.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MISC/Wall/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MISC/BallContainer/ballDropPosition.gd" type="Script" id=7]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 0.666672, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -74,3 +74,14 @@ polygon = PoolVector2Array( 1113.57, 894.107, 1009.41, 1004.98, 912.818, 1062.94
 
 [node name="Yellow Paint Ball" parent="." instance=ExtResource( 4 )]
 position = Vector2( 298.154, 65.3325 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 1116.0
+margin_right = 1919.0
+margin_bottom = 1073.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyPanel" parent="Control" instance=ExtResource( 2 )]
+anchor_right = 1.0
