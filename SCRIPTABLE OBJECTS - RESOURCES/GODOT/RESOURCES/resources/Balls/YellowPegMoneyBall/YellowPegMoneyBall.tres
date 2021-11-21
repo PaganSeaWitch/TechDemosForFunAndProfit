@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://resources/Balls/ActionBall/ActionBallResource.gd" type="Script" id=1]
+[ext_resource path="res://resources/Payloads/YellowDamage.tres" type="Resource" id=2]
+[ext_resource path="res://resources/Balls/ActionBall/genericBallTexture.tres" type="Texture" id=3]
+[ext_resource path="res://resources/Balls/ActionBall/ActionBallPhysics.tres" type="PhysicsMaterial" id=4]
+
+[resource]
+script = ExtResource( 1 )
+physicsMaterial = ExtResource( 4 )
+texture = ExtResource( 3 )
+gravityScale = 10
+scale = Vector2( 10, 10 )
+initalPayload = {
+}
+hitsFor = 1
+name = "ACTION BALL"
+description = "DOES AN ACTION WHEN HITTING PEGS"
+payloads = [ ExtResource( 2 ) ]

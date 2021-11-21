@@ -1,10 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://MISC/payload.gd" type="Script" id=1]
-[ext_resource path="res://resources/Pegs/Generic Peg/PEG.gd" type="Script" id=2]
+[ext_resource path="res://resources/Hit.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
-peg = ExtResource( 2 )
-type = "sleep"
-amount = 1
+positivePegs = [  ]
+negativePegs = [  ]

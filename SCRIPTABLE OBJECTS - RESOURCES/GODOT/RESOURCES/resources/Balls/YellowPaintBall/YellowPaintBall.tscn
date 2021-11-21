@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://resources/Balls/PaintBall/PaintBall.tscn" type="PackedScene" id=2]
-
-[node name="Yellow Paint Ball" instance=ExtResource( 2 )]
-
-[node name="BALL" parent="." index="0"]
-ballResource = null

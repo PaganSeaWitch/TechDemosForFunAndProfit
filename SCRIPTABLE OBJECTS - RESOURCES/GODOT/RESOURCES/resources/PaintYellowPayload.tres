@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://resources/PaintHit.gd" type="Script" id=1]
+[ext_resource path="res://resources/Pegs/Generic Peg/PEG.gd" type="Script" id=2]
+[ext_resource path="res://resources/Pegs/Yellow Peg/YellowPeg.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/Pegs/Yellow Peg/YellowPeg.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 1 )
+positivePegs = [ ExtResource( 2 ) ]
+negativePegs = [  ]
+colorArray = [ ExtResource( 3 ) ]
+colorTypeArray = [ ExtResource( 4 ) ]

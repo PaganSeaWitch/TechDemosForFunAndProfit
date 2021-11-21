@@ -24,30 +24,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/Balls/GenericBall/BallResource.gd"
 }, {
-"base": "ActionBallResource",
-"class": "DamageBallResource",
-"language": "GDScript",
-"path": "res://resources/Balls/YellowPegMoneyBall/DamageActionBallResource.gd"
-}, {
 "base": "Resource",
 "class": "EnemyResource",
 "language": "GDScript",
 "path": "res://resources/Enemies/EnemyResource.gd"
+}, {
+"base": "Resource",
+"class": "Hit",
+"language": "GDScript",
+"path": "res://resources/Hit.gd"
 }, {
 "base": "RigidBody2D",
 "class": "PachinkoBall",
 "language": "GDScript",
 "path": "res://resources/Balls/GenericBall/BALL.gd"
 }, {
-"base": "ActionBall",
-"class": "PaintBall",
+"base": "Hit",
+"class": "PaintHit",
 "language": "GDScript",
-"path": "res://resources/Balls/PaintBall/PaintBall.gd"
-}, {
-"base": "ActionBallResource",
-"class": "PaintBallResource",
-"language": "GDScript",
-"path": "res://resources/Balls/PaintBall/PaintBallResource.gd"
+"path": "res://resources/PaintHit.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Peg",
@@ -63,25 +58,18 @@ _global_script_classes=[ {
 "class": "YellowPeg",
 "language": "GDScript",
 "path": "res://resources/Pegs/Yellow Peg/YellowPeg.gd"
-}, {
-"base": "Resource",
-"class": "payload",
-"language": "GDScript",
-"path": "res://MISC/payload.gd"
 } ]
 _global_script_class_icons={
 "ActionBall": "",
 "ActionBallResource": "",
 "BallResource": "",
-"DamageBallResource": "",
 "EnemyResource": "",
+"Hit": "",
 "PachinkoBall": "",
-"PaintBall": "",
-"PaintBallResource": "",
+"PaintHit": "",
 "Peg": "",
 "PegResource": "",
-"YellowPeg": "",
-"payload": ""
+"YellowPeg": ""
 }
 
 [application]

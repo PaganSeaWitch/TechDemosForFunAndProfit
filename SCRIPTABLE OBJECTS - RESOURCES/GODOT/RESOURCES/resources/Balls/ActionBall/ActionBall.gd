@@ -9,12 +9,13 @@ class_name ActionBall
 var payloads
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	var resource = ballResource as ActionBallResource
-	self.payloads = resource.payloads
+func _on_GENERIC_BALL_transferResources(ballResource):
+	._on_GENERIC_BALL_transferResources(ballResource)
+	self.payloads = ballResource.payloads
 
 func ResolvePegHit(peg):
-	.ResolvePegHit(peg)
-	ballResource.customAction(peg)
+	if(ballResource.customAction(peg)):
+		ResolvePegHit(peg)
+
 
 

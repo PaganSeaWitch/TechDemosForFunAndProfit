@@ -5,10 +5,10 @@
 [ext_resource path="res://resources/Balls/ActionBall/ActionBallResource.tres" type="Resource" id=3]
 
 [node name="ACTIONBALL" instance=ExtResource( 1 )]
+ballResource = ExtResource( 3 )
 
 [node name="BALL" parent="." index="0"]
 script = ExtResource( 2 )
-ballResource = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="BALL" index="0"]
 scale = Vector2( 10, 10 )
