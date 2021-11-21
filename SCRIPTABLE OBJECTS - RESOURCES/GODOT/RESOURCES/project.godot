@@ -63,6 +63,11 @@ _global_script_classes=[ {
 "class": "YellowPeg",
 "language": "GDScript",
 "path": "res://resources/Pegs/Yellow Peg/YellowPeg.gd"
+}, {
+"base": "Resource",
+"class": "payload",
+"language": "GDScript",
+"path": "res://MISC/payload.gd"
 } ]
 _global_script_class_icons={
 "ActionBall": "",
@@ -75,7 +80,8 @@ _global_script_class_icons={
 "PaintBallResource": "",
 "Peg": "",
 "PegResource": "",
-"YellowPeg": ""
+"YellowPeg": "",
+"payload": ""
 }
 
 [application]

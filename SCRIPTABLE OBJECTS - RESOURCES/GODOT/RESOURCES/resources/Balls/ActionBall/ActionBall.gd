@@ -6,18 +6,15 @@ class_name ActionBall
 # var b = "text"
 
 
-var worksOnArray
+var payloads
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var resource = ballResource as ActionBallResource
-	self.worksOnArray = resource.worksOnArray
+	self.payloads = resource.payloads
 
 func ResolvePegHit(peg):
 	.ResolvePegHit(peg)
-	for n in range(worksOnArray.size()):
-		if(peg is worksOnArray[n]):
-			ballResource.customAction(peg)
-			break
+	ballResource.customAction(peg)
 
 

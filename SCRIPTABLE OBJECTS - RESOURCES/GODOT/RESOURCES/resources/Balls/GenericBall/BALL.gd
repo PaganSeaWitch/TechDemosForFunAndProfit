@@ -10,7 +10,7 @@ var payloadDictionary = {}
 func _ready():
 	var resource = ballResource as BallResource
 	hitFor = resource.hitsFor
-	payloadDictionary = resource.payload
+	payloadDictionary = resource.initalPayload
 	gravity_scale = resource.gravityScale
 	set_physics_material_override(resource.physicsMaterial)
 	emit_signal("addText", resource.name, resource.description)

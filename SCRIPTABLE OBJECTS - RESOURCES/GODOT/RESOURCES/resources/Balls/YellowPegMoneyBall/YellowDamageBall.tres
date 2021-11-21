@@ -4,3 +4,11 @@
 
 [resource]
 script = ExtResource( 1 )
+gravityScale = 10
+scale = Vector2( 10, 10 )
+initalPayload = {
+}
+hitsFor = 1
+name = ""
+description = ""
+payloads = [  ]

@@ -11,7 +11,7 @@ physicsMaterial = ExtResource( 2 )
 texture = ExtResource( 3 )
 gravityScale = 10
 scale = Vector2( 10, 10 )
-payload = {
+initalPayload = {
 }
 hitsFor = 1
 name = "[shake rate=5 level=10]GENERIC BALL[/shake]"

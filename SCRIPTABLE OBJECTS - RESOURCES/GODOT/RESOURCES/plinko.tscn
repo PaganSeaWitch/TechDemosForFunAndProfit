@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MISC/Peg Board/RandomPegZoneTake2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://EnemeyPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MISC/GarbageCollector/GarbageCollector.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/Balls/ActionBall/ActionBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MISC/Wall/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MISC/BallContainer/ballDropPosition.gd" type="Script" id=7]
 
@@ -28,6 +29,9 @@ anchor_bottom = 0.75
 [node name="Area2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 62.042, 1636.58 )
 scale = Vector2( 6.2, 1 )
+
+[node name="ACTIONBALL" parent="." instance=ExtResource( 4 )]
+position = Vector2( 218.151, 808.563 )
 
 [node name="RandomPegZone3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 594.374, 1149.68 )
