@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://resources/Balls/GenericBall/GenericBall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/Balls/ActionBall/ActionBall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/Balls/PaintBall/PaintBall.gd" type="Script" id=2]
 [ext_resource path="res://resources/Balls/PaintBall/PaintBallResource.tres" type="Resource" id=3]
 

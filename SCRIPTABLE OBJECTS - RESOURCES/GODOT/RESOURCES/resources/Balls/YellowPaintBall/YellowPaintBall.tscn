@@ -1,24 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://resources/Balls/YellowPaintBall/PaintYellowBall.gd" type="Script" id=1]
 [ext_resource path="res://resources/Balls/PaintBall/PaintBall.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBallResource.tres" type="Resource" id=4]
 
-[node name="Yellow Paint Ball" groups=[
-"Balls",
-] instance=ExtResource( 2 )]
+[node name="Yellow Paint Ball" instance=ExtResource( 2 )]
 
 [node name="BALL" parent="." index="0"]
-script = ExtResource( 1 )
-ballResource = ExtResource( 4 )
-
-[node name="CollisionShape2D" parent="BALL" index="0"]
-scale = Vector2( 10, 10 )
-
-[node name="CPUParticles2D" parent="BALL" index="1"]
-visible = true
-
-[node name="RichTextLabel" parent="Node2D/Control" index="0"]
-anchor_left = 0.0
-anchor_top = 0.303
-anchor_right = 1.0
+ballResource = null

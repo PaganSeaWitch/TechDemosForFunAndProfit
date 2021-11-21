@@ -17,9 +17,7 @@ func ResolvePegHit(peg):
 	.ResolvePegHit(peg)
 	for n in range(worksOnArray.size()):
 		if(peg is worksOnArray[n]):
-			customAction(peg)
+			ballResource.customAction(peg)
 			break
 
-func customAction(peg):
-	print("acted cuz peg")
 

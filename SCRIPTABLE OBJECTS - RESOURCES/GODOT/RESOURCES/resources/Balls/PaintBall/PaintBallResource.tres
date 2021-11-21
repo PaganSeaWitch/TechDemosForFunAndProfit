@@ -15,5 +15,6 @@ payload = {
 hitsFor = 1
 name = "PAINT BALL"
 description = "COLORS PEGS"
+worksOnArray = [  ]
 colorArray = [  ]
 colorTypeArray = [  ]

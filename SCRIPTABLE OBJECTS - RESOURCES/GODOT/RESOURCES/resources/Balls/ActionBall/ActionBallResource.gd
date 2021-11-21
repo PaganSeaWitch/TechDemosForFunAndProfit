@@ -7,3 +7,6 @@ export(Array) var worksOnArray
 # Called when the node enters the scene tree for the first time.
 func _init(worksOnArray = []):
 	self.worksOnArray = worksOnArray
+
+func customAction(peg):
+	print("acted cuz peg")

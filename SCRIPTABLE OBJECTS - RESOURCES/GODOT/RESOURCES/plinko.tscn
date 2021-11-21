@@ -1,87 +1,94 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MISC/Peg Board/RandomPegZoneTake2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://EnemeyPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MISC/GarbageCollector/GarbageCollector.tscn" type="PackedScene" id=3]
-[ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MISC/Wall/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MISC/BallContainer/ballDropPosition.gd" type="Script" id=7]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.4
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyPanel" parent="Panel" instance=ExtResource( 2 )]
+anchor_bottom = 0.75
+
 [node name="Area2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 33.1451, 785.2 )
+position = Vector2( 62.042, 1636.58 )
 scale = Vector2( 6.2, 1 )
 
 [node name="RandomPegZone3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 568.241, 122.172 )
+position = Vector2( 594.374, 1149.68 )
 scale = Vector2( 20, 20 )
 minPeg = 20
 maxPeg = 20
 
 [node name="RandomPegZone" parent="." instance=ExtResource( 1 )]
-position = Vector2( 58.5952, 117.692 )
+position = Vector2( 65.7224, 956.325 )
+scale = Vector2( 25, 5 )
+minPeg = 10
+maxPeg = 10
+
+[node name="RandomPegZone6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 63.3467, 835.162 )
 scale = Vector2( 25, 5 )
 minPeg = 10
 maxPeg = 10
 
 [node name="RandomPegZone2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 53.2998, 240.024 )
+position = Vector2( 63.9906, 1085.78 )
 scale = Vector2( 25, 5 )
 minPeg = 10
 maxPeg = 10
 
 [node name="RandomPegZone4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 55.1449, 365.37 )
-scale = Vector2( 25, 10 )
+position = Vector2( 67.0236, 1209.94 )
+scale = Vector2( 25, 17 )
 minPeg = 10
 maxPeg = 10
 
+[node name="RandomPegZone5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 593.186, 913.29 )
+scale = Vector2( 20, 10 )
+minPeg = 20
+maxPeg = 20
+
 [node name="Wall" parent="." instance=ExtResource( 5 )]
-position = Vector2( 18.07, 490.556 )
+position = Vector2( 18, 1340.61 )
+scale = Vector2( 2, 50 )
 
 [node name="Wall2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1011.83, 490.556 )
-
-[node name="Wall3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1092.35, 490.557 )
+position = Vector2( 1056.73, 1340.61 )
+scale = Vector2( 2, 50 )
 
 [node name="positionToBe" type="Node2D" parent="."]
-position = Vector2( 1054.04, 953.508 )
+position = Vector2( 1057.6, 1796.89 )
 
 [node name="ballDropPosition" type="Node2D" parent="."]
-position = Vector2( 1050.99, 70.6309 )
+position = Vector2( 1054.55, 914.015 )
 script = ExtResource( 7 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( -0.0397034, -2.82526 )
+position = Vector2( -1375.77, 546.395 )
+scale = Vector2( 0.964366, 1 )
 color = Color( 0.2, 0.117647, 0.117647, 1 )
 antialiased = true
 polygon = PoolVector2Array( 26.8356, 957.699, 89.6709, 1026.77, 172.538, 1065.86, 262.335, 1072.59, 809.348, 1072.59, 914.111, 1062.12, 1008.4, 1005.99, 1101.94, 906.469, 1111.66, 893.748, 0.427208, 892.251, 0.908008, 917.485, 15.1946, 945 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D"]
 position = Vector2( 0, -0.839966 )
 polygon = PoolVector2Array( 1113.57, 894.107, 1009.41, 1004.98, 912.818, 1062.94, 812.864, 1073.86, 255.979, 1073.86, 171.144, 1067.98, 87.9893, 1028.5, 14.074, 947.023, 1.03966, 918.332, -0.293686, 894.665, 0.706314, 989.665, 53.5515, 1078.05, 1110.21, 1078.9 )
-
-[node name="Yellow Paint Ball" parent="." instance=ExtResource( 4 )]
-position = Vector2( 298.154, 65.3325 )
-
-[node name="Control" type="Control" parent="."]
-margin_left = 1116.0
-margin_right = 1919.0
-margin_bottom = 1073.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EnemyPanel" parent="Control" instance=ExtResource( 2 )]
-anchor_right = 1.0

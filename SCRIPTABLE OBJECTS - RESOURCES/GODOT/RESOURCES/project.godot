@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/Balls/GenericBall/BallResource.gd"
 }, {
+"base": "ActionBallResource",
+"class": "DamageBallResource",
+"language": "GDScript",
+"path": "res://resources/Balls/YellowPegMoneyBall/DamageActionBallResource.gd"
+}, {
 "base": "Resource",
 "class": "EnemyResource",
 "language": "GDScript",
@@ -34,20 +39,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/Balls/GenericBall/BALL.gd"
 }, {
-"base": "PachinkoBall",
+"base": "ActionBall",
 "class": "PaintBall",
 "language": "GDScript",
 "path": "res://resources/Balls/PaintBall/PaintBall.gd"
 }, {
-"base": "BallResource",
+"base": "ActionBallResource",
 "class": "PaintBallResource",
 "language": "GDScript",
 "path": "res://resources/Balls/PaintBall/PaintBallResource.gd"
-}, {
-"base": "PaintBall",
-"class": "PaintYellowBall",
-"language": "GDScript",
-"path": "res://resources/Balls/YellowPaintBall/PaintYellowBall.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Peg",
@@ -63,31 +63,19 @@ _global_script_classes=[ {
 "class": "YellowPeg",
 "language": "GDScript",
 "path": "res://resources/Pegs/Yellow Peg/YellowPeg.gd"
-}, {
-"base": "ActionBall",
-"class": "YellowPegBall",
-"language": "GDScript",
-"path": "res://resources/Balls/YellowPegBall/YellowPegBall.gd"
-}, {
-"base": "YellowPegBall",
-"class": "YellowPegMoneyball",
-"language": "GDScript",
-"path": "res://resources/Balls/YellowPegMoneyBall/YellowPegMoneyBall.gd"
 } ]
 _global_script_class_icons={
 "ActionBall": "",
 "ActionBallResource": "",
 "BallResource": "",
+"DamageBallResource": "",
 "EnemyResource": "",
 "PachinkoBall": "",
 "PaintBall": "",
 "PaintBallResource": "",
-"PaintYellowBall": "",
 "Peg": "",
 "PegResource": "",
-"YellowPeg": "",
-"YellowPegBall": "",
-"YellowPegMoneyball": ""
+"YellowPeg": ""
 }
 
 [application]
@@ -98,8 +86,12 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1080
+window/size/height=1920
+window/dpi/allow_hidpi=true
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [physics]
 

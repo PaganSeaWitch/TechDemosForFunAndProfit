@@ -1,10 +1,11 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://resources/Balls/PaintBall/PaintBallResource.gd" type="Script" id=1]
 [ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBallTexture.tres" type="Texture" id=2]
 [ext_resource path="res://resources/Balls/YellowPaintBall/YellowPaintBallPhysics.tres" type="PhysicsMaterial" id=3]
 [ext_resource path="res://resources/Pegs/Yellow Peg/YellowPeg.gd" type="Script" id=4]
 [ext_resource path="res://resources/Pegs/Yellow Peg/YellowPeg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/Pegs/Generic Peg/PEG.gd" type="Script" id=6]
 
 [resource]
 script = ExtResource( 1 )
@@ -17,5 +18,6 @@ payload = {
 hitsFor = 1
 name = "[shake rate=5 level=10][center]YELLOW PAINT BALL[/center][/shake]"
 description = "[center]COLORS PEGS YELLOW[/center]"
+worksOnArray = [ ExtResource( 6 ) ]
 colorArray = [ ExtResource( 5 ) ]
 colorTypeArray = [ ExtResource( 4 ) ]
