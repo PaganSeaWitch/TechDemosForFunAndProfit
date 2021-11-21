@@ -15,3 +15,4 @@ func onPositivePegHit(peg, initalPayload):
 			shouldChange = false
 	if(shouldChange == true):
 		peg.changeColor(colorArray)
+	return true

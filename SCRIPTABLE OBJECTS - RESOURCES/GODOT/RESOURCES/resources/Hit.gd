@@ -10,18 +10,16 @@ func _init(positivePegs = [], negativePegs = []):
 func onHit(peg, initalPayload) -> bool:
 	for i in positivePegs.size():
 		if(peg is positivePegs[i]):
-			onPositivePegHit(peg, initalPayload)
-			return true
+			return onPositivePegHit(peg, initalPayload)
 	for i in negativePegs.size():
 		if(peg is negativePegs[i]):
-			onNegativePegHit(peg, initalPayload)
-			return true
-	return false
+			return onNegativePegHit(peg, initalPayload)
+	return true
 
 
-func onPositivePegHit(peg, initalPayload):
-	pass
+func onPositivePegHit(peg, initalPayload)-> bool:
+	return true
 
 
-func onNegativePegHit(peg, initalPayload):
-	pass
+func onNegativePegHit(peg, initalPayload)-> bool:
+	return true

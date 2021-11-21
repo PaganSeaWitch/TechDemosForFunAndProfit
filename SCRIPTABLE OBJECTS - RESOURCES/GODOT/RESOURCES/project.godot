@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/PaintHit.gd"
 }, {
+"base": "Hit",
+"class": "PayloadModifierHit",
+"language": "GDScript",
+"path": "res://resources/PayloadModifierHit.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Peg",
 "language": "GDScript",
@@ -67,6 +72,7 @@ _global_script_class_icons={
 "Hit": "",
 "PachinkoBall": "",
 "PaintHit": "",
+"PayloadModifierHit": "",
 "Peg": "",
 "PegResource": "",
 "YellowPeg": ""

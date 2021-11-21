@@ -2,7 +2,7 @@
 
 [ext_resource path="res://resources/Balls/ActionBall/ActionBallResource.gd" type="Script" id=1]
 [ext_resource path="res://resources/Payloads/genericPayload.tres" type="Resource" id=2]
-[ext_resource path="res://resources/Balls/ActionBall/genericBallTexture.tres" type="Texture" id=3]
+[ext_resource path="res://resources/Balls/ActionBall/ActionBallTexture.tres" type="Texture" id=3]
 [ext_resource path="res://resources/Balls/ActionBall/ActionBallPhysics.tres" type="PhysicsMaterial" id=4]
 
 [resource]

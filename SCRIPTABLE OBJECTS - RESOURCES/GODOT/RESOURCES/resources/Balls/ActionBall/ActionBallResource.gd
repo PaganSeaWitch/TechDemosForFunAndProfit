@@ -9,7 +9,7 @@ func _init(payloads = []):
 	self.payloads = payloads
 
 func customAction(peg) -> bool:
-	var resolveHit = false
+	var resolveHit = true
 	for i in payloads.size():
 		resolveHit = payloads[i].onHit(peg, initalPayload)
 	return resolveHit

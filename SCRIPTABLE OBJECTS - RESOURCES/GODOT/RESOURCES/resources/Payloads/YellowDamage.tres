@@ -6,6 +6,5 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource( 1 )
-peg = ExtResource( 2 )
-type = "damage"
-amount = 2
+positivePegs = [ ExtResource( 2 ) ]
+negativePegs = [  ]

@@ -15,7 +15,7 @@ func _on_GENERIC_BALL_transferResources(ballResource):
 
 func ResolvePegHit(peg):
 	if(ballResource.customAction(peg)):
-		ResolvePegHit(peg)
+		.ResolvePegHit(peg)
 
 
 
