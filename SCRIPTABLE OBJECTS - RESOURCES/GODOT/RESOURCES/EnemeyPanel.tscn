@@ -64,10 +64,6 @@ anchor_bottom = 1.0
 theme = ExtResource( 2 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center]GENERIC ENEMY
- DOES NOTHING[/center]"
-text = "GENERIC ENEMY
- DOES NOTHING"
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -90,8 +86,6 @@ anchor_bottom = 1.0
 theme = ExtResource( 2 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center]HEALTH 100/100[/center]"
-text = "HEALTH 100/100"
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -23,4 +23,4 @@ func _on_BALL_addText(name):
 
 func _on_EnemyPanel_sendTitle(name, description):
 	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description
+	self.bbcode_text = "[center]"+ name + "\n" + description +"[/center]"

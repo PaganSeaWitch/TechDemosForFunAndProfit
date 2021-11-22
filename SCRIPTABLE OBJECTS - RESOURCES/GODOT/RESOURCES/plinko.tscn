@@ -50,8 +50,8 @@ minPeg = 10
 maxPeg = 10
 
 [node name="RandomPegZone6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 63.3467, 835.162 )
-scale = Vector2( 25, 5 )
+position = Vector2( 66.518, 892.244 )
+scale = Vector2( 25, 2.5 )
 minPeg = 10
 maxPeg = 10
 
