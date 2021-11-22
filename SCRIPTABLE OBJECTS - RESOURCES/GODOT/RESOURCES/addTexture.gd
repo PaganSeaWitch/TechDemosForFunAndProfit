@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends TextureRect
 
 
 # Declare member variables here. Examples:
@@ -16,11 +16,7 @@ func _ready():
 #	pass
 
 
-func _on_BALL_addText(name, description):
-	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description
 
 
-func _on_EnemyPanel_sendTitle(name, description):
-	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description
+func _on_EnemyPanel_setTexture(texture):
+	self.texture = texture;

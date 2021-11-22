@@ -14,13 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_BALL_addText(name, description):
-	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description
-
-
-func _on_EnemyPanel_sendTitle(name, description):
-	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description

@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "GENERIC ENEMY"
-description = "DOES NOTHING"
+name = "[center]GENERIC ENEMY[/center]"
+description = "[center]DOES NOTHING[/center]"
 texture = ExtResource( 2 )
 moves = [ ExtResource( 3 ) ]
 health = 100

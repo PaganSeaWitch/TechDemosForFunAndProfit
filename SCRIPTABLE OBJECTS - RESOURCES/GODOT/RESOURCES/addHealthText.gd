@@ -16,11 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_BALL_addText(name, description):
-	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description
-
-
-func _on_EnemyPanel_sendTitle(name, description):
-	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description
+func _on_EnemyPanel_sendHealthToText(currentHealth, maxHealth):
+	bbcode_text = "[center]"+String(currentHealth) + "/" + String(maxHealth)+ "[/center]"
