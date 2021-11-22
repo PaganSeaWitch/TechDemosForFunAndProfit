@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/Balls/GenericBall/GenericBall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/Balls/ActionBall/ActionBall.gd" type="Script" id=2]
 [ext_resource path="res://resources/Balls/ActionBall/ActionBallResource.tres" type="Resource" id=3]
+[ext_resource path="res://resources/Balls/ActionBall/AutoScroll.gd" type="Script" id=4]
 
 [node name="ACTIONBALL" instance=ExtResource( 1 )]
 ballResource = ExtResource( 3 )
@@ -12,3 +13,16 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="BALL" index="0"]
 scale = Vector2( 10, 10 )
+
+[node name="ScrollContainer" parent="Node2D/Control" index="1"]
+margin_left = 8.0
+margin_right = -10.0
+margin_bottom = 12.6
+size_flags_vertical = 11
+follow_focus = true
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" parent="Node2D/Control/ScrollContainer" index="0"]
+custom_constants/separation = 10
+
+[connection signal="visibility_changed" from="Node2D/Control" to="Node2D/Control/ScrollContainer" method="_on_Control_visibility_changed"]

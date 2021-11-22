@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://MISC/Peg Board/RandomPegZoneTake2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://EnemeyPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MISC/GarbageCollector/GarbageCollector.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/Balls/YellowPegMoneyBall/YellowDamageBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MISC/Wall/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/Balls/GenericBall/transferResources.gd" type="Script" id=6]
 [ext_resource path="res://MISC/BallContainer/ballDropPosition.gd" type="Script" id=7]
 
 [node name="Node2D" type="Control"]
@@ -17,10 +18,13 @@ __meta__ = {
 
 [node name="Yellow Peg damage Ball" parent="." instance=ExtResource( 4 )]
 position = Vector2( 535.936, 792.805 )
+script = ExtResource( 6 )
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.77979
+margin_bottom = -1.77979
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
