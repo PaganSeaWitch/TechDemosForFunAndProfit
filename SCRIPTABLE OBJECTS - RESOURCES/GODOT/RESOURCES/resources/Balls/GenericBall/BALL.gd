@@ -35,3 +35,7 @@ func _on_GENERIC_BALL_transferResources(ballResource):
 	emit_signal("addText", resource.name, resource.description)
 	emit_signal("addTexture", resource.texture)
 	get_child(0).set_scale(resource.scale)
+
+
+func _on_GENERIC_BALL_changeToStatic():
+	self.mode = RigidBody2D.MODE_STATIC

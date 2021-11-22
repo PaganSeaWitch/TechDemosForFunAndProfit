@@ -84,6 +84,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="changeToStatic" from="." to="BALL" method="_on_GENERIC_BALL_changeToStatic"]
 [connection signal="transferResources" from="." to="BALL" method="_on_GENERIC_BALL_transferResources"]
 [connection signal="addText" from="BALL" to="Node2D/Control/RichTextLabel" method="_on_BALL_addText"]
 [connection signal="addTexture" from="BALL" to="BALL/CollisionShape2D/mesh" method="_on_BALL_addTexture"]

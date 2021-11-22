@@ -1,15 +1,15 @@
 extends BallResource
 class_name ActionBallResource
 
-export(Array, Resource) var payloads
+export(Array, Resource) var hits
 
 
 # Called when the node enters the scene tree for the first time.
-func _init(payloads = []):
-	self.payloads = payloads
+func _init(hits = []):
+	self.hits = hits
 
 func customAction(peg) -> bool:
 	var resolveHit = true
-	for i in payloads.size():
-		resolveHit = payloads[i].onHit(peg, initalPayload)
+	for i in hits.size():
+		resolveHit = hits[i].onHit(peg, initalPayload)
 	return resolveHit

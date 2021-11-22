@@ -6,12 +6,12 @@ class_name ActionBall
 # var b = "text"
 
 
-var payloads
+var hits
 
 # Called when the node enters the scene tree for the first time.
 func _on_GENERIC_BALL_transferResources(ballResource):
 	._on_GENERIC_BALL_transferResources(ballResource)
-	self.payloads = ballResource.payloads
+	self.hits = ballResource.hits
 
 func ResolvePegHit(peg):
 	if(ballResource.customAction(peg)):

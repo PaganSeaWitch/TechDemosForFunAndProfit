@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/Hits/Scripts/PayloadModifierHit.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+positivePegs = [  ]
+negativePegs = [  ]
+value = ""
+reduceByOnNegativeHits = 0
+increaseByOnPositiveHits = 0

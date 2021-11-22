@@ -1,6 +1,6 @@
 extends Node2D
 
-signal AttachPegs(pegs)
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
