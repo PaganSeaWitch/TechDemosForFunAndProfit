@@ -15,4 +15,4 @@ initalPayload = {
 }
 hitsFor = 1
 name = "[shake rate=5 level=10]GENERIC BALL[/shake]"
-description = "[wave amp=50 freq=2]DOES NOTHING[/wave]"
+abilitiesInfo = [  ]

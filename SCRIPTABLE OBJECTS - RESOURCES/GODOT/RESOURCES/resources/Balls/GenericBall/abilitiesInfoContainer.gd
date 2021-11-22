@@ -1,10 +1,10 @@
-extends RichTextLabel
+extends VBoxContainer
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+export(PackedScene) var panel = load("res://AbilityInfo/AbilityInfoPanel.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,11 +16,8 @@ func _ready():
 #	pass
 
 
-func _on_BALL_addText(name):
-	self.bbcode_enabled = true
-	self.bbcode_text = "[center]" + name +"[/center]"
-
-
-func _on_EnemyPanel_sendTitle(name, description):
-	self.bbcode_enabled = true
-	self.bbcode_text = name + "\n" + description
+func _on_BALL_addInfo(abilitiesInfo):
+	for i in abilitiesInfo:
+		var newPanel = panel.instance();
+		newPanel.abilityInfoResource = i
+		self.add_child(newPanel)

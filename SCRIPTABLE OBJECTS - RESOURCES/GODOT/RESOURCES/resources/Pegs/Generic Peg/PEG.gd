@@ -64,4 +64,7 @@ func place():
 	self.get_child(0).set_deferred("disabled", false)
 
 func _on_Area2D_area_entered(area):
-	self.queue_free()
+	if(area.get_parent().get_index()> get_parent().get_index()):
+		self.queue_free()
+
+

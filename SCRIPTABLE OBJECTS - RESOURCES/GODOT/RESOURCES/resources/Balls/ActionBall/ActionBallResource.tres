@@ -13,6 +13,6 @@ scale = Vector2( 10, 10 )
 initalPayload = {
 }
 hitsFor = 1
-name = "ACTION BALL"
-description = "DOES AN ACTION WHEN HITTING PEGS"
+name = "[center]ACTION BALL[/center]"
+abilitiesInfo = [  ]
 hits = [  ]

@@ -8,8 +8,15 @@ export(int) var pos
 
 func _on_EnemyPanel_setBall(ball, index):
 	if(index == pos):
-		self.remove_child(self.get_child(0))
+		if(self.get_child_count() != 0):
+			self.remove_child(self.get_child(0))
 		var newBall = ball.instance()
 		newBall.changeToStatic = true
 		self.add_child(newBall)
-
+		match(index):
+			0:
+				newBall.get_child(1).position.x = newBall.get_child(1).position.x + 115
+			1:
+				newBall.get_child(1).position.x = newBall.get_child(1).position.x + 75
+			2:
+				newBall.get_child(1).position.x = newBall.get_child(1).position.x + 35
