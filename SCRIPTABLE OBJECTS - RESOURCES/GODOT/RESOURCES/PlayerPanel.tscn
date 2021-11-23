@@ -1,23 +1,33 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://resources/Themes/defaultTheme.tres" type="Theme" id=2]
 [ext_resource path="res://resources/Fonts/defaultFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://resources/Styles/HealthBar.gd" type="Script" id=4]
 [ext_resource path="res://resources/Styles/backgroundInfoPanel.tres" type="StyleBox" id=5]
+[ext_resource path="res://resources/Textures/GreenDollarSign.png" type="Texture" id=6]
+[ext_resource path="res://resources/Styles/SolidLinePanel.tres" type="StyleBox" id=7]
+[ext_resource path="res://resources/Textures/power.png" type="Texture" id=8]
 [ext_resource path="res://MISC/reallySimpleScripts/addText.gd" type="Script" id=9]
 [ext_resource path="res://addTexture.gd" type="Script" id=10]
 [ext_resource path="res://addHealthText.gd" type="Script" id=11]
+[ext_resource path="res://PlayerPanel.gd" type="Script" id=12]
+[ext_resource path="res://DiscardBallContainer.gd" type="Script" id=13]
+[ext_resource path="res://ReservePopup.gd" type="Script" id=14]
+[ext_resource path="res://resources/Player.tres" type="Resource" id=15]
+[ext_resource path="res://ReserveBallContainer.gd" type="Script" id=16]
 
-[node name="EnemyPanel" type="Panel"]
+[node name="Player Panel" type="Panel"]
 anchor_right = 0.5
 anchor_bottom = 0.3
 mouse_filter = 2
 theme = ExtResource( 2 )
 custom_styles/panel = ExtResource( 5 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+playerResource = ExtResource( 15 )
 
 [node name="panel" type="PanelContainer" parent="."]
 anchor_left = 0.25
@@ -78,7 +88,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Health Panel"]
+[node name="Health Label" type="RichTextLabel" parent="Health Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -91,7 +101,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="Health Panel"]
+[node name="Health Bar" type="ProgressBar" parent="Health Panel"]
 anchor_left = 0.25
 anchor_top = 0.55
 anchor_right = 0.75
@@ -115,3 +125,270 @@ mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Money Texture" type="TextureRect" parent="Stats Panel"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.077, 0.077 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="moneyLabel" type="RichTextLabel" parent="Stats Panel"]
+anchor_left = 0.101
+anchor_top = 0.086
+anchor_right = 0.365
+anchor_bottom = 0.395
+margin_top = -0.280304
+margin_bottom = -0.280304
+bbcode_enabled = true
+bbcode_text = "[right]000[/right]"
+text = "000"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="underline" type="Panel" parent="Stats Panel"]
+anchor_left = 0.088
+anchor_top = 0.378
+anchor_right = 0.359
+anchor_bottom = 0.412
+margin_top = -1.14441e-05
+margin_bottom = -1.14441e-05
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy Texture" type="TextureRect" parent="Stats Panel"]
+anchor_top = 0.514
+anchor_bottom = 0.514
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.077, 0.077 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="underline2" type="Panel" parent="Stats Panel"]
+anchor_left = 0.088
+anchor_top = 0.919
+anchor_right = 0.359
+anchor_bottom = 0.919
+margin_top = -1.14441e-05
+margin_bottom = -1.14441e-05
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy Label" type="RichTextLabel" parent="Stats Panel"]
+anchor_left = 0.101649
+anchor_top = 0.639
+anchor_right = 0.365649
+anchor_bottom = 0.944
+bbcode_enabled = true
+bbcode_text = "[right]3/3[/right]"
+text = "3/3"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="discordButton" type="Button" parent="Stats Panel"]
+anchor_left = 0.475
+anchor_top = 0.072
+anchor_right = 0.87
+anchor_bottom = 0.366
+text = "Discard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReserveButton" type="Button" parent="Stats Panel"]
+anchor_left = 0.475
+anchor_top = 0.575
+anchor_right = 0.87
+anchor_bottom = 0.877
+text = "Reserve"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="amtInReserve" type="RichTextLabel" parent="Stats Panel"]
+anchor_left = 0.879
+anchor_top = 0.617
+anchor_right = 1.0
+anchor_bottom = 0.944
+bbcode_enabled = true
+bbcode_text = "30"
+text = "30"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="amtInDiscard" type="RichTextLabel" parent="Stats Panel"]
+anchor_left = 0.879
+anchor_top = 0.113
+anchor_right = 1.0
+anchor_bottom = 0.455
+bbcode_enabled = true
+bbcode_text = "30"
+text = "30"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReservePopup" type="Popup" parent="."]
+visible = true
+margin_right = 1000.0
+margin_bottom = 1000.0
+mouse_filter = 2
+script = ExtResource( 14 )
+
+[node name="Panel2" type="Panel" parent="ReservePopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ReservePopup/Panel2"]
+anchor_left = 0.3
+anchor_top = 0.027
+anchor_right = 0.7
+anchor_bottom = 0.074
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ReservePopup/Panel2/Panel"]
+anchor_top = 0.101
+anchor_right = 1.0
+anchor_bottom = 0.986
+bbcode_enabled = true
+bbcode_text = "[center]Balls In Reserve"
+text = "Balls In Reserve"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="ReservePopup/Panel2"]
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.95
+mouse_filter = 2
+columns = 14
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="ReservePopup/Panel2/GridContainer"]
+
+[node name="exitButton" type="Button" parent="ReservePopup/Panel2"]
+anchor_left = 0.849
+anchor_top = 0.029
+anchor_right = 0.871
+anchor_bottom = 0.029
+margin_right = 10.0
+margin_bottom = 43.0
+text = "exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiscardPopup" type="Popup" parent="."]
+margin_right = 1000.0
+margin_bottom = 1000.0
+mouse_filter = 2
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="DiscardPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="DiscardPopup/Panel2"]
+anchor_left = 0.3
+anchor_top = 0.027
+anchor_right = 0.7
+anchor_bottom = 0.074
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DiscardPopup/Panel2/Panel"]
+anchor_top = 0.101
+anchor_right = 1.0
+anchor_bottom = 0.986
+bbcode_enabled = true
+bbcode_text = "[center]Balls In Discard"
+text = "Balls In Discard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="DiscardPopup/Panel2"]
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.95
+mouse_filter = 2
+columns = 14
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="DiscardPopup/Panel2/GridContainer"]
+
+[node name="exitButton" type="Button" parent="DiscardPopup/Panel2"]
+anchor_left = 0.849
+anchor_top = 0.029
+anchor_right = 0.871
+anchor_bottom = 0.029
+margin_right = 10.0
+margin_bottom = 43.0
+text = "exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="addToDiscard" from="." to="DiscardPopup/Panel2/GridContainer" method="_on_Player_Panel_addToDiscard"]
+[connection signal="addToReserve" from="." to="ReservePopup/Panel2/GridContainer" method="_on_Player_Panel_addToReserve"]
+[connection signal="removeAmtFromReserve" from="." to="ReservePopup/Panel2/GridContainer" method="_on_Player_Panel_removeAmtFromReserve"]
+[connection signal="removeFromDiscard" from="." to="DiscardPopup/Panel2/GridContainer" method="_on_Player_Panel_removeFromDiscard"]
+[connection signal="sendHealthToBar" from="." to="Health Panel/Health Bar" method="_on_EnemyPanel_sendHealthToBar"]
+[connection signal="sendHealthToText" from="." to="Health Panel/Health Label" method="_on_EnemyPanel_sendHealthToText"]
+[connection signal="sendTitle" from="." to="title Panel/RichTextLabel" method="_on_BALL_addText"]
+[connection signal="setEnergy" from="." to="Stats Panel/Energy Label" method="_on_sendEnergy_rightCentered"]
+[connection signal="setMoney" from="." to="Stats Panel/moneyLabel" method="_on_sendTitle_rightCentered"]
+[connection signal="setTexture" from="." to="panel/TextureRect" method="_on_EnemyPanel_setTexture"]
+[connection signal="pressed" from="Stats Panel/discordButton" to="DiscardPopup" method="_on_discordButton_pressed"]
+[connection signal="pressed" from="Stats Panel/ReserveButton" to="ReservePopup" method="_on_ReserveButton_pressed"]
+[connection signal="SendDiscardBack" from="ReservePopup/Panel2/GridContainer" to="DiscardPopup/Panel2/GridContainer" method="_on_GridContainer_SendDiscardBack"]
+[connection signal="SendToNewLocation" from="ReservePopup/Panel2/GridContainer" to="." method="_on_sendToNewLocation"]
+[connection signal="pressed" from="ReservePopup/Panel2/exitButton" to="ReservePopup" method="_on_Button_pressed"]
+[connection signal="SendDiscardBack" from="DiscardPopup/Panel2/GridContainer" to="ReservePopup/Panel2/GridContainer" method="_on_DiscardGiveBalls"]
+[connection signal="SendToNewLocation" from="DiscardPopup/Panel2/GridContainer" to="." method="_on_sendToNewLocation"]
+[connection signal="pressed" from="DiscardPopup/Panel2/exitButton" to="DiscardPopup" method="_on_Button_pressed"]

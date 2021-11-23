@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/Pegs/Generic Peg/PegResource.gd"
 }, {
+"base": "Resource",
+"class": "PlayerResource",
+"language": "GDScript",
+"path": "res://resources/PlayerResource.gd"
+}, {
 "base": "Peg",
 "class": "YellowPeg",
 "language": "GDScript",
@@ -87,6 +92,7 @@ _global_script_class_icons={
 "PayloadModifierHit": "",
 "Peg": "",
 "PegResource": "",
+"PlayerResource": "",
 "YellowPeg": ""
 }
 

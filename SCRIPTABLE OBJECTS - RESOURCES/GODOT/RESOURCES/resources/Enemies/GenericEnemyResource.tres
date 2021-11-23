@@ -10,4 +10,5 @@ name = "Generic Enemy"
 description = "Does Nothing"
 texture = ExtResource( 2 )
 moves = [ ExtResource( 3 ) ]
-health = 100
+currentHealth = 0
+maxHealth = 0

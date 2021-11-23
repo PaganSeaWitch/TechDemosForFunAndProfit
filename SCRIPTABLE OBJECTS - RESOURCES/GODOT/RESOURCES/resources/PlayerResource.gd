@@ -1,19 +1,14 @@
 extends Resource
-class_name EnemyResource
+class_name PlayerResource
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 export(String, MULTILINE) var name
-export(String, MULTILINE) var description
 export(Texture) var texture
-export(Array, Resource) var moves
+export(Array, PackedScene) var balls
 export(int) var currentHealth
 export(int) var maxHealth
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+export(int) var maxEnergy
+export(int) var money
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:shadowed_variable
@@ -21,10 +16,11 @@ func _ready():
 # warning-ignore:shadowed_variable
 # warning-ignore:shadowed_variable
 # warning-ignore:shadowed_variable
-func _init(currentHealth = 10,maxHealth = 10, texture = null, moves = [], name = "", description = ""):
+func _init(currentHealth = 10,maxHealth = 10, texture = null, name = "", balls = [], maxEnergy = 3, money = 10):
 	self.currentHealth = currentHealth
 	self.maxHealth = maxHealth
 	self.texture = texture
-	self.moves = moves
+	self.balls = balls
 	self.name = name
-	self.description = description
+	self.maxEnergy = maxEnergy
+	self.money = money
