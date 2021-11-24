@@ -245,7 +245,6 @@ __meta__ = {
 }
 
 [node name="ReservePopup" type="Popup" parent="."]
-visible = true
 margin_right = 1000.0
 margin_bottom = 1000.0
 mouse_filter = 2

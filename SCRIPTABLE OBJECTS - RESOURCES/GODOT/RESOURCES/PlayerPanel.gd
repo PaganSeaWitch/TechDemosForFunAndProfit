@@ -26,7 +26,7 @@ func _ready():
 	emit_signal("addToDiscard", resource.balls)
 	emit_signal("setEnergy", String(resource.maxEnergy), String(resource.maxEnergy))
 	emit_signal("setMoney", String(resource.money))
-	emit_signal("removeAmtFromReserve",1, location.DISCARD)
+
 
 
 func _on_sendToNewLocation(ball, local):
