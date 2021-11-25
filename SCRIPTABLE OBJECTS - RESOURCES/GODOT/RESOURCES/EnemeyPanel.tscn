@@ -247,6 +247,15 @@ __meta__ = {
 }
 pos = 9
 
+[connection signal="clearBalls" from="." to="TurnPanel/pos1" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos2" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos3" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos4" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos5" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos6" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos7" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos8" method="_on_EnemyPanel_clearBalls"]
+[connection signal="clearBalls" from="." to="TurnPanel/pos10" method="_on_EnemyPanel_clearBalls"]
 [connection signal="sendHealthToBar" from="." to="Health Panel/ProgressBar" method="_on_EnemyPanel_sendHealthToBar"]
 [connection signal="sendHealthToText" from="." to="Health Panel/RichTextLabel" method="_on_EnemyPanel_sendHealthToText"]
 [connection signal="sendTitle" from="." to="title Panel/RichTextLabel" method="_on_EnemyPanel_sendTitle"]

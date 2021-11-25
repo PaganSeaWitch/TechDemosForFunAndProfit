@@ -8,9 +8,11 @@ signal sendHealthToBar(currentHealth, maxHealth)
 signal sendHealthToText(currentHealth, maxHealth)
 signal setTexture(texture)
 signal setBall(ball, index)
-
-
+signal clearBalls
+signal startSpawningBalls(ballArray)
 var index := 0;
+var moves = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var resource = enemyResource as EnemyResource
@@ -18,5 +20,22 @@ func _ready():
 	emit_signal("sendHealthToBar", resource.currentHealth, resource.maxHealth)
 	emit_signal("sendHealthToText", resource.currentHealth, resource.maxHealth)
 	emit_signal("setTexture", resource.texture)
-	for i in resource.moves[0].moveSet.size():
-		emit_signal("setBall",resource.moves[0].moveSet[i], i)
+	var array = enemyResource.moves[index].moveSet.duplicate()
+	for i in array.size():
+		emit_signal("setBall",array[i], i)
+
+func _on_Player_Panel_startEnemyTurn():
+	var resource = enemyResource as EnemyResource
+	var array = resource.moves[index].moveSet.duplicate()
+	emit_signal("clearBalls")
+	emit_signal("startSpawningBalls", array)
+	index = index + 1
+	if(index >= resource.moves.size()):
+		index = 0;
+
+
+func _on_enemySpawnBallZone_startPlayerTurn():
+	var resource = enemyResource as EnemyResource
+	var array = enemyResource.moves[index].moveSet.duplicate()
+	for i in array.size():
+		emit_signal("setBall",array[i], i)

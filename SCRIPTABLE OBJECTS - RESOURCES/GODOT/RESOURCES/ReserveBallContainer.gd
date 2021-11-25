@@ -26,29 +26,30 @@ func _on_Player_Panel_addToReserve(arrayOfBalls):
 		newControl.set_mouse_filter(MOUSE_FILTER_IGNORE)
 		newControl.set_custom_minimum_size(Vector2(50,50))
 		var newBall = i.instance()
-		newBall.changeToStatic = true
+		newBall.ballIsStatic = true
 		newControl.add_child(newBall)
 		newBall.position = Vector2(25,25)
 		self.add_child(newControl)
+		newBall.stopBouncingPhysics()
 		reserveArray.push_front(i)
 
 
 func _on_Player_Panel_removeAmtFromReserve(amt, location):
 	var rng = RandomNumberGenerator.new()
 	if(amt > reserveArray.size() && discardEmpty == false):
-		emit_signal("SendDiscardBack", amt, location)
 		discardEmpty = true
+		emit_signal("SendDiscardBack", amt, location)
 	elif(discardEmpty):
 		var size = reserveArray.size()
 		for i in size:
-			var randIndex = rng.randi_range(0, reserveArray.size())
+			var randIndex = rng.randi_range(0, reserveArray.size()-1)
 			emit_signal("SendToNewLocation", reserveArray[randIndex], location)
 			reserveArray.remove(randIndex)
 			remove_child(get_child(randIndex))
 		discardEmpty = false
 	else:
 		for i in amt:
-			var randIndex = rng.randi_range(0, reserveArray.size())
+			var randIndex = rng.randi_range(0, reserveArray.size()-1)
 			emit_signal("SendToNewLocation", reserveArray[randIndex], location)
 			reserveArray.remove(randIndex)
 			remove_child(get_child(randIndex))

@@ -102,6 +102,10 @@ config/name="PlinkoPanic2.0"
 run/main_scene="res://plinko.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+BallCountSingleton="*res://resources/ballCountSingleton.gd"
+
 [display]
 
 window/size/width=1080

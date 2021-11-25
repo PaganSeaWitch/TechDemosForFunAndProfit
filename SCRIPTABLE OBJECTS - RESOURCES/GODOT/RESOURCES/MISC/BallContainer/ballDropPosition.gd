@@ -5,19 +5,37 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-var ball = load("res://resources/Balls/GenericBall/GenericBall.tscn")
+var arrayOfBalls = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+signal addToDiscard(ball)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_BallCarrier_dropNext():
+func _on_Player_Panel_addToBoard(ball):
+	arrayOfBalls.push_front(ball)
 	var newBall = ball.instance()
-	get_parent().add_child(newBall)
-	newBall.position = self.position
+	newBall.setBallTeam("Player")
+	self.add_child(newBall)
+	newBall.draggable(true)
+	newBall.stopBouncingPhysics()
+
+
+func _on_Player_Panel_startEnemyTurn():
+	for i in get_children():
+		i.draggable(false)
+
+
+
+func _on_enemySpawnBallZone_startPlayerTurn():
+	for i in get_children():
+		i.draggable(true)
+
+
+
+func _on_Area2D_sendBallToDiscard(ball):
+	var index = 0
+	for i in arrayOfBalls.size():
+		if(ball.get_filename() == arrayOfBalls[i].get_path()):
+			call_deferred("emit_signal", "addToDiscard", arrayOfBalls[i])
+			index = i
+			break
+	arrayOfBalls.remove(index)

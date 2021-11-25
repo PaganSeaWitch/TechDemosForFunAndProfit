@@ -26,13 +26,12 @@ func _on_Player_Panel_addToDiscard(arrayOfBalls):
 		var newControl = control.duplicate()
 		newControl.set_mouse_filter(MOUSE_FILTER_IGNORE)
 		newControl.set_custom_minimum_size(Vector2(50,50))
+		self.add_child(newControl)
 		var newBall = i.instance()
+		newBall.ballIsStatic = true
 		discardArray.push_front(i)
-		newBall.changeToStatic = true
 		newControl.add_child(newBall)
 		newBall.position = Vector2(25,25)
-		self.add_child(newControl)
-
 
 func _on_GridContainer_SendDiscardBack(amt, location):
 	var tempArray =[]

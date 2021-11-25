@@ -28,6 +28,10 @@ func changeColor(colorArray):
 	var peg = color.instance()
 	changePeg(peg)
 
+func reset():
+	hasHits = 0
+	self.emit_signal("getDarker", 1)
+	self.emit_signal("addHit", "")
 
 func resetAndRemove():
 	self.get_child(0).visible = false
@@ -35,7 +39,6 @@ func resetAndRemove():
 	hasHits = 0
 	self.emit_signal("startTextTimer")
 	self.emit_signal("getDarker", 1)
-
 
 func addHit(hitAmt):
 	hasHits += hitAmt;
@@ -46,7 +49,6 @@ func addHit(hitAmt):
 	if(hasHits >= hitsAllowed):
 		resetAndRemove()
 	emit()
-
 
 func changePeg(peg):
 	get_parent().call_deferred("add_child", peg)

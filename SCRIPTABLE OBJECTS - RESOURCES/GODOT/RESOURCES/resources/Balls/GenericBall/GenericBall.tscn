@@ -19,6 +19,7 @@ radius = 1.01718
 [sub_resource type="SphereMesh" id=2]
 
 [node name="GENERIC BALL" type="Node2D"]
+z_index = 1
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -137,11 +138,17 @@ script = ExtResource( 12 )
 panel = ExtResource( 11 )
 
 [connection signal="changeToStatic" from="." to="BALL" method="_on_GENERIC_BALL_changeToStatic"]
+[connection signal="draggable" from="." to="BALL" method="_on_GENERIC_BALL_draggable"]
+[connection signal="flipGravity" from="." to="BALL" method="_on_GENERIC_BALL_flipGravity"]
+[connection signal="setTeam" from="." to="BALL" method="_on_GENERIC_BALL_setTeam"]
+[connection signal="stopBouncing" from="." to="BALL" method="_on_GENERIC_BALL_stopBouncing"]
 [connection signal="transferResources" from="." to="BALL" method="_on_GENERIC_BALL_transferResources"]
 [connection signal="addInfo" from="BALL" to="Node2D/Control/ScrollContainer/VBoxContainer" method="_on_BALL_addInfo"]
 [connection signal="addText" from="BALL" to="Node2D/Control/Panel/Panel2/RichTextLabel" method="_on_BALL_addText"]
 [connection signal="addTexture" from="BALL" to="BALL/CollisionShape2D/mesh" method="_on_BALL_addTexture"]
+[connection signal="beingDragged" from="BALL" to="Node2D/Control" method="_on_BALL_beingDragged"]
 [connection signal="body_shape_entered" from="BALL" to="BALL" method="_on_BALL_body_shape_entered"]
 [connection signal="mouse_entered" from="BALL" to="BALL" method="_on_BALL_mouse_entered"]
 [connection signal="mouse_entered" from="BALL" to="Node2D/Control" method="_on_BALL_mouse_entered"]
 [connection signal="mouse_exited" from="BALL" to="Node2D/Control" method="_on_BALL_mouse_exited"]
+[connection signal="turnOff" from="BALL" to="Node2D/Control" method="_on_BALL_turnOff"]
