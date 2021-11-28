@@ -18,7 +18,6 @@ func _on_Player_Panel_addToBoard(ball):
 	newBall.draggable(true)
 	newBall.stopBouncingPhysics()
 
-
 func _on_Player_Panel_startEnemyTurn():
 	for i in get_children():
 		i.draggable(false)

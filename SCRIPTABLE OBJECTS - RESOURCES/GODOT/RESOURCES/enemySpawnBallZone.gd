@@ -23,11 +23,11 @@ func _process(delta):
 func spawnFirstBall(ballArray):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	
-	var x = rng.randi_range(self.global_position.x, self.get_child(0).position.x)
+	var x = rng.randi_range(0, self.get_child(0).position.x)
 	var ball = ballArray[0].instance()
 	ball.setBallTeam("Enemy")
 	ball.position = Vector2(x, 0)
+	ball.changeHits()
 	self.add_child(ball)
 	ball.flipBallGravity()
 	ballArray.remove(0)

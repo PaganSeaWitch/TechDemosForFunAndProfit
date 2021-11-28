@@ -54,3 +54,13 @@ func _on_enemySpawnBallZone_startPlayerTurn():
 
 func _on_spawnBallsIntoCup_addToDiscard(ball):
 	_on_sendToNewLocation(ball, location.DISCARD)
+
+
+func sendPayloadToPlayer(key, value):
+	match(key):
+		"Health":
+			playerResource.currentHealth += value
+			if(playerResource.currentHealth < 0):
+				playerResource.currentHealth = 0;
+			emit_signal("sendHealthToBar", playerResource.currentHealth, playerResource.maxHealth)
+			emit_signal("sendHealthToText", playerResource.currentHealth, playerResource.maxHealth)

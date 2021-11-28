@@ -103,6 +103,23 @@ anchor_bottom = 0.97
 anchor_top = 0.1
 anchor_bottom = 0.97
 
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Panel"]
+anchor_left = 0.942
+anchor_right = 0.96
+margin_left = -18.0097
+margin_top = -8.04435
+margin_right = 580.55
+margin_bottom = 609.956
+rect_scale = Vector2( 0.15, 0.15 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Panel2" type="Panel" parent="."]
 material = SubResource( 5 )
 anchor_top = 0.35
@@ -160,25 +177,7 @@ scale = Vector2( 2, 54 )
 [node name="positionToBe" type="Node2D" parent="."]
 position = Vector2( 1057.6, 1796.89 )
 
-[node name="TextureButton" type="TextureButton" parent="."]
-anchor_left = 0.942
-anchor_right = 0.96
-margin_left = -18.0097
-margin_top = -9.82414
-margin_right = 580.55
-margin_bottom = 608.176
-rect_scale = Vector2( 0.15, 0.15 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 8 )
-texture_disabled = ExtResource( 8 )
-texture_focused = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Area2D2" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 55.5578, 743.543 )
 scale = Vector2( 6.2, 1 )
 collision_layer = 3
@@ -240,7 +239,11 @@ polygon = PoolVector2Array( -288.433, 408.715, 279.063, 408.715, 298.906, 386.88
 [connection signal="startEnemyTurn" from="CanvasLayer/Panel/Player Panel" to="spawnBallsIntoCup" method="_on_Player_Panel_startEnemyTurn"]
 [connection signal="startSpawningBalls" from="CanvasLayer/Panel/EnemyPanel" to="enemySpawnBallZone" method="_on_EnemyPanel_startSpawningBalls"]
 [connection signal="sendBallToDiscard" from="Area2D" to="spawnBallsIntoCup" method="_on_Area2D_sendBallToDiscard"]
+[connection signal="sendPayloadToEnemy" from="Area2D" to="CanvasLayer/Panel/EnemyPanel" method="sendPayloadToEnemy"]
+[connection signal="sendPayloadToPlayer" from="Area2D" to="CanvasLayer/Panel/Player Panel" method="sendPayloadToPlayer"]
 [connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_exited"]
+[connection signal="sendPayloadToEnemy" from="Area2D2" to="CanvasLayer/Panel/EnemyPanel" method="sendPayloadToEnemy"]
+[connection signal="sendPayloadToPlayer" from="Area2D2" to="CanvasLayer/Panel/Player Panel" method="sendPayloadToPlayer"]
 [connection signal="pressed" from="EndTurnButton" to="CanvasLayer/Panel/Player Panel" method="_on_EndTurnButton_pressed"]
 [connection signal="pressed" from="EndTurnButton" to="EndTurnButton" method="_on_EndTurnButton_pressed"]
 [connection signal="addToDiscard" from="spawnBallsIntoCup" to="CanvasLayer/Panel/Player Panel" method="_on_spawnBallsIntoCup_addToDiscard"]

@@ -6,6 +6,7 @@
 [ext_resource path="res://resources/Balls/ActionBall/ActionBallPhysics.tres" type="PhysicsMaterial" id=4]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource( 1 )
 physicsMaterial = ExtResource( 4 )
 texture = ExtResource( 3 )
@@ -16,4 +17,5 @@ initalPayload = {
 hitsFor = 1
 name = "[center]ACTION BALL[/center]"
 abilitiesInfo = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+outcomes = [  ]
 hits = [  ]

@@ -12,6 +12,7 @@ signal stopBouncing
 signal draggable(canBeDragged)
 
 
+
 func _ready():
 	if(ballIsStatic):
 		emit_signal("changeToStatic")
@@ -34,3 +35,15 @@ func stopBouncingPhysics():
 
 func draggable(canBeDragged):
 	emit_signal("draggable", canBeDragged)
+
+
+func changeHits():
+	if(ballResource is ActionBallResource):
+		ballResource.setHits()
+		for i in ballResource.currentHits.size():
+			if(ballResource.currentHits[i] is PayloadModifierHit):
+				if(ballResource.currentHits[i].team == "Enemy" && ballResource.currentHits[i].team == ballResource.hits[i].team):
+					ballResource.currentHits[i].team = "Player"
+				elif(ballResource.currentHits[i].team == "Player" && ballResource.currentHits[i].team == ballResource.hits[i].team):
+					ballResource.currentHits[i].team = "Enemy"
+

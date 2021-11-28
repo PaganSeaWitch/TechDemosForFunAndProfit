@@ -12,7 +12,10 @@ texture = ExtResource( 3 )
 gravityScale = 10
 scale = Vector2( 10, 10 )
 initalPayload = {
+"Enemy": {
+}
 }
 hitsFor = 1
 name = "[shake rate=5 level=10]GENERIC BALL[/shake]"
 abilitiesInfo = [  ]
+outcomes = [  ]

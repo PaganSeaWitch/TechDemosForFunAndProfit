@@ -39,3 +39,13 @@ func _on_enemySpawnBallZone_startPlayerTurn():
 	var array = enemyResource.moves[index].moveSet.duplicate()
 	for i in array.size():
 		emit_signal("setBall",array[i], i)
+
+
+func sendPayloadToEnemy(key, value):
+	match(key):
+		"Health":
+			enemyResource.currentHealth += value
+			if(enemyResource.currentHealth < 0):
+				enemyResource.currentHealth = 0;
+			emit_signal("sendHealthToBar", enemyResource.currentHealth, enemyResource.maxHealth)
+			emit_signal("sendHealthToText", enemyResource.currentHealth, enemyResource.maxHealth)

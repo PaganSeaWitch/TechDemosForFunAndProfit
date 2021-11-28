@@ -5,20 +5,24 @@ extends Area2D
 # var a = 2
 # var b = "text"
 export(String) var teamZone
-
 signal sendBallToDiscard(ball)
+signal sendPayloadToEnemy(key, value)
+signal sendPayloadToPlayer(key, value)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func resolvePayload(payload):
 	print(payload)
+	if(payload.has("Enemy")):
+		for i in payload["Enemy"]:
+			emit_signal("sendPayloadToEnemy",i, payload["Enemy"][i])
+	if(payload.has("Player")):
+		for i in payload["Player"]:
+			emit_signal("sendPayloadToPlayer", i, payload["Player"][i])
+
 
 func _on_Area2D_body_entered(body):
 	if(body is PachinkoBall):
@@ -33,7 +37,6 @@ func _on_Area2D_body_entered(body):
 				emit_signal("sendBallToDiscard", body.get_parent())
 		if(body.is_in_group(teamZone) && teamZone == "Player"):
 			body.rightSpot = true
-
 
 
 func _on_Area2D2_body_exited(body):

@@ -8,7 +8,7 @@ func _init(colorArray = [], colorTypeArray = []):
 	self.colorArray = colorArray
 	self.colorTypeArray = colorTypeArray
 
-func onPositivePegHit(peg, initalPayload):
+func onPositivePegHit(peg, initalPayload, outcomes):
 	var shouldChange = true
 	for n in range(colorTypeArray.size()):
 		if(peg is colorTypeArray[n]):

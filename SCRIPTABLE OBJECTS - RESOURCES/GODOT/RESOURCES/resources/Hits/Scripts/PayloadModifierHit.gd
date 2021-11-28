@@ -1,21 +1,25 @@
 extends Hit
 class_name PayloadModifierHit
 
-
+export(String) var team
 export(String) var value
-export(int) var reduceByOnNegativeHits
-export(int) var increaseByOnPositiveHits 
+export(float) var reduceByOnNegativeHits
+export(float) var increaseByOnPositiveHits 
 
-func onPositivePegHit(peg, initalPayload):
-	if(initalPayload.has(value)):
-		initalPayload[value] += increaseByOnPositiveHits
+func onPositivePegHit(peg, initalPayload, outcomes):
+	if(!initalPayload.has(team)):
+		initalPayload[team] = {}
+	if(initalPayload[team].has(value)):
+		initalPayload[team][value] += increaseByOnPositiveHits
 	else:
-		initalPayload[value] = increaseByOnPositiveHits
+		initalPayload[team][value] = increaseByOnPositiveHits
 	return true
 
-func onNegativePegHit(peg, initalPayload):
-	if(initalPayload.has(value)):
-		initalPayload[value] -= reduceByOnNegativeHits
+func onNegativePegHit(peg, initalPayload, outcomes):
+	if(!initalPayload.has(team)):
+		initalPayload[team] = {}
+	if(initalPayload[team].has(value)):
+		initalPayload[team][value] -= reduceByOnNegativeHits
 	else:
-		initalPayload[value] = -1 * reduceByOnNegativeHits
+		initalPayload[team][value] = -1 * reduceByOnNegativeHits
 	return true

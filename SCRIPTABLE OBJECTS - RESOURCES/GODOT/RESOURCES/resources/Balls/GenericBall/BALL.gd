@@ -15,6 +15,7 @@ var dragging = false
 var click_radius = 10
 var draggable = false
 var stopBouncing = false
+
 func _on_BALL_body_shape_entered(body_id, body, body_shape, local_shape):
 	if(body.is_in_group("Pegs")):
 		ResolvePegHit(body)
@@ -29,7 +30,7 @@ func _on_GENERIC_BALL_transferResources(ballResource):
 	self.ballResource = ballResource
 	var resource = ballResource as BallResource
 	hitFor = resource.hitsFor
-	payloadDictionary = resource.initalPayload
+	payloadDictionary = resource.currentPayload
 	gravity_scale = resource.gravityScale
 	if(!stopBouncing):
 		set_physics_material_override(resource.physicsMaterial)
@@ -37,6 +38,7 @@ func _on_GENERIC_BALL_transferResources(ballResource):
 	emit_signal("addTexture", resource.texture)
 	get_child(0).set_scale(resource.scale)
 	emit_signal("addInfo", resource.abilitiesInfo)
+
 
 
 func _on_GENERIC_BALL_changeToStatic():
