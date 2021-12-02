@@ -156,7 +156,7 @@ minPeg = 100
 maxPeg = 100
 
 [node name="Wall" parent="." instance=ExtResource( 5 )]
-position = Vector2( 19.3334, 1156.61 )
+position = Vector2( 19.3334, 1155.49 )
 scale = Vector2( 2, 50 )
 
 [node name="Wall2" parent="." instance=ExtResource( 5 )]
