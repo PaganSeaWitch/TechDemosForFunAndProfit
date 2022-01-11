@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://resources/Enemies/EnemyMoveResource.gd"
 }, {
 "base": "Resource",
+"class": "EnemyList",
+"language": "GDScript",
+"path": "res://resources/EnemyLists/EnemyListResource.gd"
+}, {
+"base": "Resource",
 "class": "EnemyResource",
 "language": "GDScript",
 "path": "res://resources/Enemies/EnemyResource.gd"
@@ -85,6 +90,7 @@ _global_script_class_icons={
 "ActionBallResource": "",
 "BallResource": "",
 "EnemeyMove": "",
+"EnemyList": "",
 "EnemyResource": "",
 "Hit": "",
 "PachinkoBall": "",
@@ -99,7 +105,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PlinkoPanic2.0"
-run/main_scene="res://resources/Game Architecture/Combat.tscn"
+run/main_scene="res://Main Scene.tscn"
 config/icon="res://icon.png"
 
 [autoload]

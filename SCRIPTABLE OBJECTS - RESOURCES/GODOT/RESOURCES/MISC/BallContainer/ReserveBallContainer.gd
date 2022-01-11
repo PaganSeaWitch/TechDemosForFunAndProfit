@@ -5,7 +5,8 @@ extends GridContainer
 var reserveArray := []
 var control
 var discardEmpty = false
-func _ready():
+
+func getControl():
 	control = get_child(0)
 	remove_child(control)
 
@@ -19,7 +20,9 @@ func _on_DiscardGiveBalls(arrayOfBalls, amt, location):
 
 
 func _on_Player_Panel_addToReserve(arrayOfBalls):
-	randomize();
+	randomize()
+	if(control == null):
+		getControl()
 	arrayOfBalls.shuffle()
 	for i in arrayOfBalls:
 		var newControl = control.duplicate()

@@ -22,7 +22,7 @@ signal addToBoard(ball)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_sendPlayerResource(player):
-	var playerResource = player as PlayerResource
+	playerResource = player as PlayerResource
 	emit_signal("sendTitle", playerResource.name)
 	emit_signal("sendHealthToBar", playerResource.currentHealth, playerResource.maxHealth)
 	emit_signal("sendHealthToText", playerResource.currentHealth, playerResource.currentHealth)
