@@ -8,19 +8,20 @@ signal startPlayerTurn
 var ballArray
 var finished = false
 var dropping = false
-func _on_EnemyPanel_startSpawningBalls(ballArray):
-	self.ballArray = ballArray
+func _on_EnemyPanel_startSpawningBalls(newBallArray):
+	self.ballArray = newBallArray
 	dropping = true
 
-func _process(delta):
+func _process(_delta):
 	if(BallCountSingleton.ballCurrentCount == 0 && dropping == true):
-		spawnFirstBall(ballArray)
+		spawnFirstBall()
 	if(BallCountSingleton.ballCurrentCount == 0 && finished == true):
 		finished = false
 		emit_signal("resetPegs")
 		emit_signal("startPlayerTurn")
-		
-func spawnFirstBall(ballArray):
+
+
+func spawnFirstBall():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var x = rng.randi_range(0, self.get_child(0).position.x)

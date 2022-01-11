@@ -10,7 +10,9 @@ export(int) var maxHealth
 export(int) var maxEnergy
 export(int) var money
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
 # warning-ignore:shadowed_variable
 # warning-ignore:shadowed_variable
 # warning-ignore:shadowed_variable

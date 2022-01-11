@@ -21,6 +21,8 @@ func _ready():
 # warning-ignore:shadowed_variable
 # warning-ignore:shadowed_variable
 # warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
 func _init(currentHealth = 10,maxHealth = 10, texture = null, moves = [], name = "", description = ""):
 	self.currentHealth = currentHealth
 	self.maxHealth = maxHealth

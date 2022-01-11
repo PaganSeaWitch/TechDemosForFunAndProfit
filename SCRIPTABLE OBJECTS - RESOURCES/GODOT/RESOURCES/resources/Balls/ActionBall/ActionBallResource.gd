@@ -4,6 +4,9 @@ class_name ActionBallResource
 export(Array, Resource) var hits
 
 var currentHits = []
+
+
+# warning-ignore:shadowed_variable
 # Called when the node enters the scene tree for the first time.
 func _init(hits = []):
 	self.hits = hits

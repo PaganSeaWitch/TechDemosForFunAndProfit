@@ -6,7 +6,7 @@ export(String) var value
 export(float) var reduceByOnNegativeHits
 export(float) var increaseByOnPositiveHits 
 
-func onPositivePegHit(peg, initalPayload, outcomes):
+func onPositivePegHit(_peg, initalPayload, _outcomes):
 	if(!initalPayload.has(team)):
 		initalPayload[team] = {}
 	if(initalPayload[team].has(value)):
@@ -15,7 +15,7 @@ func onPositivePegHit(peg, initalPayload, outcomes):
 		initalPayload[team][value] = increaseByOnPositiveHits
 	return true
 
-func onNegativePegHit(peg, initalPayload, outcomes):
+func onNegativePegHit(_peg, initalPayload, _outcomes):
 	if(!initalPayload.has(team)):
 		initalPayload[team] = {}
 	if(initalPayload[team].has(value)):

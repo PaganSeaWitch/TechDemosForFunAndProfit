@@ -16,7 +16,7 @@ var click_radius = 10
 var draggable = false
 var stopBouncing = false
 
-func _on_BALL_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_BALL_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if(body.is_in_group("Pegs")):
 		ResolvePegHit(body)
 
@@ -26,18 +26,17 @@ func ResolvePegHit(peg):
 		peg.addHit(hitFor)
 
 
-func _on_GENERIC_BALL_transferResources(ballResource):
-	self.ballResource = ballResource
-	var resource = ballResource as BallResource
-	hitFor = resource.hitsFor
-	payloadDictionary = resource.currentPayload
-	gravity_scale = resource.gravityScale
+func _on_GENERIC_BALL_transferResources(newResource):
+	ballResource = newResource as BallResource
+	hitFor = ballResource.hitsFor
+	payloadDictionary = ballResource.currentPayload
+	gravity_scale = ballResource.gravityScale
 	if(!stopBouncing):
-		set_physics_material_override(resource.physicsMaterial)
-	emit_signal("addText", resource.name)
-	emit_signal("addTexture", resource.texture)
-	get_child(0).set_scale(resource.scale)
-	emit_signal("addInfo", resource.abilitiesInfo)
+		set_physics_material_override(ballResource.physicsMaterial)
+	emit_signal("addText", ballResource.name)
+	emit_signal("addTexture", ballResource.texture)
+	get_child(0).set_scale(ballResource.scale)
+	emit_signal("addInfo", ballResource.abilitiesInfo)
 
 
 
@@ -49,7 +48,7 @@ func _on_BALL_mouse_entered():
 	if(self.mode != RigidBody2D.MODE_STATIC):
 		get_parent().get_child(1).global_position = self.global_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_parent().get_child(1).global_position = self.global_position
 
 func _on_GENERIC_BALL_setTeam(team):
@@ -66,8 +65,7 @@ func _on_GENERIC_BALL_stopBouncing():
 
 
 func _on_GENERIC_BALL_startBouncing():
-		var resource = ballResource as BallResource
-		self.set_physics_material_override(resource.physicsMaterial)
+		self.set_physics_material_override(ballResource.physicsMaterial)
 
 
 func _input(event):

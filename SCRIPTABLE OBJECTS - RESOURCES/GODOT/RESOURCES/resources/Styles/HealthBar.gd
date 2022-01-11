@@ -1,7 +1,7 @@
 extends ProgressBar
 
 var styleboxEdge = load("res://resources/Styles/progressBarForegrounEdge.tres")
-func _process(delta):
+func _process(_delta):
 	if(self.ratio <= .96):
 		self.add_stylebox_override("fg", styleboxEdge)
 

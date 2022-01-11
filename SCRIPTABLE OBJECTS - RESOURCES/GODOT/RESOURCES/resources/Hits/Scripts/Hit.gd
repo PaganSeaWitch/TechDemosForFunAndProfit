@@ -3,6 +3,8 @@ class_name Hit
 export(Array, Script) var positivePegs
 export(Array, Script) var negativePegs
 
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
 func _init(positivePegs = [], negativePegs = []):
 	self.positivePegs = positivePegs
 	self.negativePegs = negativePegs
@@ -17,9 +19,9 @@ func onHit(peg, initalPayload, outcomes) -> bool:
 	return true
 
 
-func onPositivePegHit(peg, initalPayload, outcomes)-> bool:
+func onPositivePegHit(_peg, _initalPayload, _outcomes)-> bool:
 	return true
 
 
-func onNegativePegHit(peg, initalPayload, outcomes)-> bool:
+func onNegativePegHit(_peg, _initalPayload, _outcomes)-> bool:
 	return true

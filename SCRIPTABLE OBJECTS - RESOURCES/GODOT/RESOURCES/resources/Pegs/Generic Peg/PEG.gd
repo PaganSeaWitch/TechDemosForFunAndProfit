@@ -5,7 +5,7 @@ signal emitParticles
 signal addHit(amt)
 signal startTextTimer
 signal getDarker(amt)
-signal changeColor(colorArray)
+
 var hitsAllowed
 var hasHits = 0
 export(Resource) var pegResource

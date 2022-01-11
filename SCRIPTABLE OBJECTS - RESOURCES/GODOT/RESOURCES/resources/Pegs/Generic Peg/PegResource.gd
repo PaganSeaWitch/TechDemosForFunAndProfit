@@ -6,6 +6,8 @@ class_name PegResource
 # var b = "text"
 export(int) var hitsAllowed
 
+
+# warning-ignore:shadowed_variable
 # Called when the node enters the scene tree for the first time.
 func _init(hitsAllowed = 5):
 	self.hitsAllowed = hitsAllowed

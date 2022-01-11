@@ -9,7 +9,7 @@ var peg = load("res://resources/Pegs/Generic Peg/PEG.tscn")
 
 
 
-func _on_Node2D_setStuffs(upperLeft, upperRight, bottomLeft, BottomRight, minPeg, maxPeg):
+func _on_Node2D_setStuffs(upperLeft, upperRight, _bottomLeft, BottomRight, minPeg, maxPeg):
 	randomize()
 	self.set_global_scale(Vector2(1,1))
 	var numOfPegs = rand_range(minPeg, maxPeg)
@@ -20,7 +20,6 @@ func _on_Node2D_setStuffs(upperLeft, upperRight, bottomLeft, BottomRight, minPeg
 		var maxY = BottomRight.global_position.y
 		var y = rand_range(upperRight.global_position.y, maxY)
 		var newPeg = peg.instance()
-		var oldScale = newPeg.get_scale()
 		self.add_child(newPeg)
 		newPeg.global_position = Vector2(x,y)
 		pegs.append(self.to_local(Vector2(x,y)))

@@ -15,29 +15,26 @@ var moves = []
 
 # Called when the node enters the scene tree for the first time.
 func _on_sendEnemyResource(enemy):
-	var resource = enemy as EnemyResource
-	enemyResource = resource
-	emit_signal("sendTitle", resource.name ,resource.description)
-	emit_signal("sendHealthToBar", resource.currentHealth, resource.maxHealth)
-	emit_signal("sendHealthToText", resource.currentHealth, resource.maxHealth)
-	emit_signal("setTexture", resource.texture)
+	enemyResource = enemy as EnemyResource
+	emit_signal("sendTitle", enemyResource.name ,enemyResource.description)
+	emit_signal("sendHealthToBar", enemyResource.currentHealth, enemyResource.maxHealth)
+	emit_signal("sendHealthToText", enemyResource.currentHealth, enemyResource.maxHealth)
+	emit_signal("setTexture", enemyResource.texture)
 	var array = enemyResource.moves[index].moveSet.duplicate()
 	for i in array.size():
 		emit_signal("setBall",array[i], i)
 
 
 func _on_Player_Panel_startEnemyTurn():
-	var resource = enemyResource as EnemyResource
-	var array = resource.moves[index].moveSet.duplicate()
+	var array = enemyResource.moves[index].moveSet.duplicate()
 	emit_signal("clearBalls")
 	emit_signal("startSpawningBalls", array)
 	index = index + 1
-	if(index >= resource.moves.size()):
+	if(index >= enemyResource.moves.size()):
 		index = 0;
 
 
 func _on_enemySpawnBallZone_startPlayerTurn():
-	var resource = enemyResource as EnemyResource
 	var array = enemyResource.moves[index].moveSet.duplicate()
 	for i in array.size():
 		emit_signal("setBall",array[i], i)

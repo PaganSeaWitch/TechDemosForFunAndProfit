@@ -11,7 +11,17 @@ export(String, MULTILINE) var name
 export(Array, Resource) var abilitiesInfo
 export(Array, Resource) var outcomes
 var currentPayload = {}
-# Called when the node enters the scene tree for the first time.
+
+
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:shadowed_variable
 func _init(gravityScale = 10, scale = Vector2(10,10), initalPayload = {}, physicsMaterial = null,texture = null, hitsFor = 1, name = "", abilitiesInfo = [], outcomes = []):
 	self.gravityScale = gravityScale
 	self.scale = scale

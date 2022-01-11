@@ -6,7 +6,7 @@ class_name EnemeyMove
 # var b = "text"
 export(Array, PackedScene) var moveSet
 
-
+# warning-ignore:shadowed_variable
 # Called when the node enters the scene tree for the first time.
 func _init(moveSet = []):
 	self.moveSet = moveSet
