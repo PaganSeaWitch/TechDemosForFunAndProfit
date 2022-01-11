@@ -1,17 +1,18 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://MISC/Peg Board/RandomPegZoneTake2.tscn" type="PackedScene" id=1]
-[ext_resource path="res://EnemeyPanel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://MISC/GarbageCollector/GarbageCollector.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MISC/Wall/Wall.tscn" type="PackedScene" id=5]
-[ext_resource path="res://PlayerPanel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://MISC/BallContainer/ballDropPosition.gd" type="Script" id=7]
+[ext_resource path="res://resources/Themes/defaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/Styles/defaultFlatStyle.tres" type="StyleBox" id=2]
+[ext_resource path="res://MISC/BallContainer/ballDropPosition.gd" type="Script" id=3]
+[ext_resource path="res://MISC/Peg Board/enemySpawnBallZone.gd" type="Script" id=4]
+[ext_resource path="res://MISC/reallySimpleScripts/EndTurnButton.gd" type="Script" id=5]
+[ext_resource path="res://resources/Textures/Bowl-PNG-Photo.png" type="Texture" id=6]
+[ext_resource path="res://resources/Game Architecture/PlayerPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://2699_color.png" type="Texture" id=8]
-[ext_resource path="res://resources/Themes/defaultTheme.tres" type="Theme" id=9]
-[ext_resource path="res://resources/Textures/Bowl-PNG-Photo.png" type="Texture" id=10]
-[ext_resource path="res://resources/Styles/defaultFlatStyle.tres" type="StyleBox" id=11]
-[ext_resource path="res://enemySpawnBallZone.gd" type="Script" id=12]
-[ext_resource path="res://EndTurnButton.gd" type="Script" id=13]
+[ext_resource path="res://MISC/Wall/Wall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/Game Architecture/CombatSetUp.gd" type="Script" id=10]
+[ext_resource path="res://resources/Game Architecture/EnemeyPanel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://MISC/GarbageCollector/GarbageCollector.tscn" type="PackedScene" id=12]
+[ext_resource path="res://MISC/Peg Board/RandomPegZoneTake2.tscn" type="PackedScene" id=13]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 0.355727, 0.203191, 0.398438, 1 )
@@ -74,6 +75,7 @@ shader = SubResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -87,19 +89,19 @@ anchor_bottom = 0.35
 margin_top = -1.77979
 margin_bottom = -1.77979
 mouse_filter = 2
-custom_styles/panel = ExtResource( 11 )
+custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Player Panel" parent="CanvasLayer/Panel" instance=ExtResource( 6 )]
+[node name="Player Panel" parent="CanvasLayer/Panel" instance=ExtResource( 7 )]
 anchor_left = 0.5
 anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 0.97
 
-[node name="EnemyPanel" parent="CanvasLayer/Panel" instance=ExtResource( 2 )]
+[node name="EnemyPanel" parent="CanvasLayer/Panel" instance=ExtResource( 11 )]
 anchor_top = 0.1
 anchor_bottom = 0.97
 
@@ -139,37 +141,37 @@ anchor_top = 0.872
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = ExtResource( 11 )
+custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" parent="." instance=ExtResource( 3 )]
+[node name="Area2D" parent="." instance=ExtResource( 12 )]
 position = Vector2( 55.5578, 1599.62 )
 scale = Vector2( 6.2, 1 )
 teamZone = "Enemy"
 
-[node name="RandomPegZone6" parent="." instance=ExtResource( 1 )]
+[node name="RandomPegZone6" parent="." instance=ExtResource( 13 )]
 position = Vector2( 56.1224, 792.495 )
 scale = Vector2( 48, 38 )
 minPeg = 100
 maxPeg = 100
 
-[node name="Wall" parent="." instance=ExtResource( 5 )]
+[node name="Wall" parent="." instance=ExtResource( 9 )]
 position = Vector2( 19.3334, 1155.49 )
 scale = Vector2( 2, 50 )
 
-[node name="Wall2" parent="." instance=ExtResource( 5 )]
+[node name="Wall2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1060.29, 1156.61 )
 rotation = 3.14159
 scale = Vector2( 2, 50 )
 
-[node name="Wall3" parent="." instance=ExtResource( 5 )]
+[node name="Wall3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 539.745, 1667.78 )
 rotation = 1.5708
 scale = Vector2( 2, 54 )
 
-[node name="Wall4" parent="." instance=ExtResource( 5 )]
+[node name="Wall4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 542.412, 676.857 )
 rotation = 1.5708
 scale = Vector2( 2, 54 )
@@ -177,7 +179,7 @@ scale = Vector2( 2, 54 )
 [node name="positionToBe" type="Node2D" parent="."]
 position = Vector2( 1057.6, 1796.89 )
 
-[node name="Area2D2" parent="." instance=ExtResource( 3 )]
+[node name="Area2D2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 55.5578, 743.543 )
 scale = Vector2( 6.2, 1 )
 collision_layer = 3
@@ -190,16 +192,16 @@ anchor_top = 0.885
 anchor_right = 0.978
 anchor_bottom = 0.907
 margin_bottom = 0.76001
-theme = ExtResource( 9 )
+theme = ExtResource( 1 )
 text = "End Turn"
-script = ExtResource( 13 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="spawnBallsIntoCup" type="Node2D" parent="."]
 position = Vector2( 542.437, 1726.59 )
-script = ExtResource( 7 )
+script = ExtResource( 3 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( 543.814, 1827.3 )
@@ -209,7 +211,7 @@ polygon = PoolVector2Array( -742.835, -319.419, 744.966, -322.388, 730.117, -99.
 
 [node name="enemySpawnBallZone" type="Node2D" parent="."]
 position = Vector2( 62.0544, 1598.56 )
-script = ExtResource( 12 )
+script = ExtResource( 4 )
 
 [node name="rightSide" type="Node2D" parent="enemySpawnBallZone"]
 position = Vector2( 957.755, -4.23792 )
@@ -223,7 +225,7 @@ margin_right = 1534.12
 margin_bottom = 1600.0
 rect_scale = Vector2( 0.2, 0.2 )
 mouse_filter = 2
-texture = ExtResource( 10 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -234,6 +236,8 @@ position = Vector2( 802.07, 794.1 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/StaticBody2D"]
 polygon = PoolVector2Array( -288.433, 408.715, 279.063, 408.715, 298.906, 386.888, 415.315, 314.132, 531.063, 219.549, 629.614, 97.1875, 693.11, -45.6787, 713.614, -148.198, 722.213, -226.907, 722.874, -294.372, 720.89, -356.545, 768.511, -354.561, 789.016, -334.719, 784.385, -199.789, 767.851, -84.7021, 710.307, 85.2812, 646.149, 181.849, 566.779, 269.817, 447.725, 370.353, 319.409, 448.399, 300.89, 468.242, -306.953, 470.889, -330.102, 451.707, -408.811, 402.762, -524.559, 319.424, -597.315, 255.266, -648.905, 195.077, -693.739, 133.726, -750.372, 17.3145, -786.553, -110.108, -799.138, -248.543, -798.352, -335.852, -779.474, -354.729, -769.249, -354.729, -734.64, -354.729, -734.64, -291.018, -734.64, -234.385, -726.775, -148.649, -711.043, -67.6338, -674.862, 29.1133, -636.32, 102.264, -579.688, 177.773, -497.885, 261.936, -434.96, 310.703, -346.865, 366.549, -304.391, 391.719 )
 
+[connection signal="sendEnemyResource" from="." to="CanvasLayer/Panel/EnemyPanel" method="_on_sendEnemyResource"]
+[connection signal="sendPlayerResource" from="." to="CanvasLayer/Panel/Player Panel" method="_on_sendPlayerResource"]
 [connection signal="addToBoard" from="CanvasLayer/Panel/Player Panel" to="spawnBallsIntoCup" method="_on_Player_Panel_addToBoard"]
 [connection signal="startEnemyTurn" from="CanvasLayer/Panel/Player Panel" to="CanvasLayer/Panel/EnemyPanel" method="_on_Player_Panel_startEnemyTurn"]
 [connection signal="startEnemyTurn" from="CanvasLayer/Panel/Player Panel" to="spawnBallsIntoCup" method="_on_Player_Panel_startEnemyTurn"]

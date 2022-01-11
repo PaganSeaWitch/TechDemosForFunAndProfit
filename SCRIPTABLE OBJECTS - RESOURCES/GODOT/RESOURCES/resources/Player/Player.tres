@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://resources/PlayerResource.gd" type="Script" id=1]
+[ext_resource path="res://resources/Player/PlayerResource.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://resources/Balls/YellowPegMoneyBall/YellowDamageBall.tscn" type="PackedScene" id=3]
 

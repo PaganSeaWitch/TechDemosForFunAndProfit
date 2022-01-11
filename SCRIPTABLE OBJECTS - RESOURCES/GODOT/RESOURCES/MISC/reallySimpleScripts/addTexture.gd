@@ -16,5 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_BALL_addTexture(texture):
+func _on_addTexture(texture):
 	self.texture = texture

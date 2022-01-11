@@ -72,9 +72,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="BALL" type="RigidBody2D" parent="." groups=[
-"Ball",
-]]
+[node name="BALL" type="RigidBody2D" parent="." groups=["Ball"]]
 input_pickable = true
 contacts_reported = 5
 contact_monitor = true
@@ -191,6 +189,7 @@ panel = ExtResource( 11 )
 [connection signal="transferResources" from="." to="BALL" method="_on_GENERIC_BALL_transferResources"]
 [connection signal="addInfo" from="BALL" to="Node2D/Control/ScrollContainer/VBoxContainer" method="_on_BALL_addInfo"]
 [connection signal="addText" from="BALL" to="Node2D/Control/Panel/Panel2/RichTextLabel" method="_on_BALL_addText"]
+[connection signal="addTexture" from="BALL" to="BALL/CollisionShape2D/mesh" method="_on_addTexture"]
 [connection signal="addTexture" from="BALL" to="BALL/CollisionShape2D/mesh" method="_on_BALL_addTexture"]
 [connection signal="beingDragged" from="BALL" to="Node2D/Control" method="_on_BALL_beingDragged"]
 [connection signal="body_shape_entered" from="BALL" to="BALL" method="_on_BALL_body_shape_entered"]

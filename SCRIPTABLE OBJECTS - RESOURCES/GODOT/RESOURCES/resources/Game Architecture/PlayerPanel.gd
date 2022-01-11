@@ -1,7 +1,7 @@
 extends Panel
 
 
-export(Resource) var playerResource
+var playerResource
 
 enum location {BOARD = 0, RESERVE = 1, DISCARD = 2}
 
@@ -18,16 +18,18 @@ signal setMoney(amt)
 signal setEnergy(current, maxEnergy)
 signal startEnemyTurn
 signal addToBoard(ball)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _ready():
-	var resource = playerResource as PlayerResource
-	emit_signal("sendTitle", resource.name)
-	emit_signal("sendHealthToBar", resource.currentHealth, resource.maxHealth)
-	emit_signal("sendHealthToText", resource.currentHealth, resource.currentHealth)
-	emit_signal("setTexture", resource.texture)
-	emit_signal("addToReserve", resource.balls)
-	emit_signal("setEnergy", String(resource.maxEnergy), String(resource.maxEnergy))
-	emit_signal("setMoney", String(resource.money))
+func _on_sendPlayerResource(player):
+	var playerResource = player as PlayerResource
+	emit_signal("sendTitle", playerResource.name)
+	emit_signal("sendHealthToBar", playerResource.currentHealth, playerResource.maxHealth)
+	emit_signal("sendHealthToText", playerResource.currentHealth, playerResource.currentHealth)
+	emit_signal("setTexture", playerResource.texture)
+	emit_signal("addToReserve", playerResource.balls)
+	emit_signal("setEnergy", String(playerResource.maxEnergy), String(playerResource.maxEnergy))
+	emit_signal("setMoney", String(playerResource.money))
 	emit_signal("removeAmtFromReserve", 5, location.BOARD)
 
 
@@ -64,3 +66,6 @@ func sendPayloadToPlayer(key, value):
 				playerResource.currentHealth = 0;
 			emit_signal("sendHealthToBar", playerResource.currentHealth, playerResource.maxHealth)
 			emit_signal("sendHealthToText", playerResource.currentHealth, playerResource.maxHealth)
+
+
+

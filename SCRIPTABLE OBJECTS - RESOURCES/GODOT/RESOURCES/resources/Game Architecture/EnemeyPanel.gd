@@ -1,7 +1,7 @@
 extends Panel
 
 
-export(Resource) var enemyResource
+var enemyResource
 
 signal sendTitle(name, description)
 signal sendHealthToBar(currentHealth, maxHealth)
@@ -14,8 +14,9 @@ var index := 0;
 var moves = []
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	var resource = enemyResource as EnemyResource
+func _on_sendEnemyResource(enemy):
+	var resource = enemy as EnemyResource
+	enemyResource = resource
 	emit_signal("sendTitle", resource.name ,resource.description)
 	emit_signal("sendHealthToBar", resource.currentHealth, resource.maxHealth)
 	emit_signal("sendHealthToText", resource.currentHealth, resource.maxHealth)
@@ -23,6 +24,7 @@ func _ready():
 	var array = enemyResource.moves[index].moveSet.duplicate()
 	for i in array.size():
 		emit_signal("setBall",array[i], i)
+
 
 func _on_Player_Panel_startEnemyTurn():
 	var resource = enemyResource as EnemyResource
@@ -49,3 +51,5 @@ func sendPayloadToEnemy(key, value):
 				enemyResource.currentHealth = 0;
 			emit_signal("sendHealthToBar", enemyResource.currentHealth, enemyResource.maxHealth)
 			emit_signal("sendHealthToText", enemyResource.currentHealth, enemyResource.maxHealth)
+
+

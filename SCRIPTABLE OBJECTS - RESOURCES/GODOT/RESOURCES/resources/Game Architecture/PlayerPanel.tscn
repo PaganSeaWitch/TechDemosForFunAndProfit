@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://resources/Themes/defaultTheme.tres" type="Theme" id=2]
@@ -9,13 +9,12 @@
 [ext_resource path="res://resources/Styles/SolidLinePanel.tres" type="StyleBox" id=7]
 [ext_resource path="res://resources/Textures/power.png" type="Texture" id=8]
 [ext_resource path="res://MISC/reallySimpleScripts/addText.gd" type="Script" id=9]
-[ext_resource path="res://addTexture.gd" type="Script" id=10]
-[ext_resource path="res://addHealthText.gd" type="Script" id=11]
-[ext_resource path="res://PlayerPanel.gd" type="Script" id=12]
-[ext_resource path="res://DiscardBallContainer.gd" type="Script" id=13]
-[ext_resource path="res://ReservePopup.gd" type="Script" id=14]
-[ext_resource path="res://resources/Player.tres" type="Resource" id=15]
-[ext_resource path="res://ReserveBallContainer.gd" type="Script" id=16]
+[ext_resource path="res://MISC/reallySimpleScripts/addRectTexture.gd" type="Script" id=10]
+[ext_resource path="res://MISC/reallySimpleScripts/addHealthText.gd" type="Script" id=11]
+[ext_resource path="res://resources/Game Architecture/PlayerPanel.gd" type="Script" id=12]
+[ext_resource path="res://MISC/BallContainer/DiscardBallContainer.gd" type="Script" id=13]
+[ext_resource path="res://MISC/reallySimpleScripts/ReservePopup.gd" type="Script" id=14]
+[ext_resource path="res://MISC/BallContainer/ReserveBallContainer.gd" type="Script" id=16]
 
 [node name="Player Panel" type="Panel"]
 anchor_right = 0.5
@@ -27,7 +26,6 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-playerResource = ExtResource( 15 )
 
 [node name="panel" type="PanelContainer" parent="."]
 anchor_left = 0.25
@@ -392,7 +390,7 @@ __meta__ = {
 [connection signal="sendTitle" from="." to="title Panel/RichTextLabel" method="_on_BALL_addText"]
 [connection signal="setEnergy" from="." to="Stats Panel/Energy Label" method="_on_sendEnergy_rightCentered"]
 [connection signal="setMoney" from="." to="Stats Panel/moneyLabel" method="_on_sendTitle_rightCentered"]
-[connection signal="setTexture" from="." to="panel/TextureRect" method="_on_EnemyPanel_setTexture"]
+[connection signal="setTexture" from="." to="panel/TextureRect" method="_on_setTexture"]
 [connection signal="pressed" from="Stats Panel/discordButton" to="CanvasLayer/DiscardPopup" method="_on_discordButton_pressed"]
 [connection signal="pressed" from="Stats Panel/ReserveButton" to="CanvasLayer2/ReservePopup" method="_on_ReserveButton_pressed"]
 [connection signal="SendDiscardBack" from="CanvasLayer2/ReservePopup/Panel2/GridContainer" to="CanvasLayer/DiscardPopup/Panel2/GridContainer" method="_on_GridContainer_SendDiscardBack"]
