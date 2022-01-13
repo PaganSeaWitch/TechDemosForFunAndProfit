@@ -1,13 +1,9 @@
 extends Area2D
-# TITLE : 
-# Functions : 
-# Purpose :
+# TITLE : GarbageCollector
+# Functions : _on_Area2D_body_entered, _on_Area2D2_body_exited, resolvePayload
+# Purpose : To Properly Dispose of Balls and To Administer Their Effects
 # Closely Connected Scripts : 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export(String) var teamZone
 
 # connected To : 
 # Purpose : 
@@ -22,20 +18,11 @@ signal sendPayloadToEnemy(key, value)
 signal sendPayloadToPlayer(key, value)
 
 
-func _ready():
-	pass # Replace with function body.
+export(String) var teamZone : String
 
 
-func resolvePayload(payload):
-	print(payload)
-	if(payload.has("Enemy")):
-		for i in payload["Enemy"]:
-			emit_signal("sendPayloadToEnemy",i, payload["Enemy"][i])
-	if(payload.has("Player")):
-		for i in payload["Player"]:
-			emit_signal("sendPayloadToPlayer", i, payload["Player"][i])
-
-
+# Recieved From : GarbageCollector
+# Purpose : 
 func _on_Area2D_body_entered(body):
 	if(body is PachinkoBall):
 		if(!body.is_in_group(teamZone)):
@@ -51,8 +38,20 @@ func _on_Area2D_body_entered(body):
 			body.rightSpot = true
 
 
+# Recieved From : 
+# Purpose : 
 func _on_Area2D2_body_exited(body):
 	if(body is PachinkoBall):
 		if(body.is_in_group(teamZone) && teamZone == "Player"):
 			print("left the zone")
 			body.rightSpot = false
+
+# Purpose : 
+func resolvePayload(payload):
+	print(payload)
+	if(payload.has("Enemy")):
+		for i in payload["Enemy"]:
+			emit_signal("sendPayloadToEnemy",i, payload["Enemy"][i])
+	if(payload.has("Player")):
+		for i in payload["Player"]:
+			emit_signal("sendPayloadToPlayer", i, payload["Player"][i])
