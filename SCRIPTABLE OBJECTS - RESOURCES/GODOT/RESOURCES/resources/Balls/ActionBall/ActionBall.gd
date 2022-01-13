@@ -1,6 +1,12 @@
 extends PachinkoBall
 class_name ActionBall
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

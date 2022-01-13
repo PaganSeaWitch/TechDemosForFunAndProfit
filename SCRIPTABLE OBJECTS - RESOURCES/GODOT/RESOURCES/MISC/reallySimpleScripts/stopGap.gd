@@ -1,6 +1,9 @@
 extends StaticBody2D
 
-
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
 func _on_Area2D2_body_exited(body):
 	self.collision_layer = 1

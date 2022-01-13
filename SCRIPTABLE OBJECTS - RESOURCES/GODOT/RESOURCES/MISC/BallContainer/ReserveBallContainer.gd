@@ -1,25 +1,39 @@
 extends GridContainer
 
+# TITLE : ReserveBallContainer
+# Functions : getControl, _on_Player_Panel_addToReserve, _on_DiscardGiveBalls
+#		_on_Player_Panel_removeAmtFromReserve, _on_Player_Panel_removeFromReserve
+# Purpose: Contains and displays balls that are still in Reserve
+# Closely Connected Scripts : PlayerPanel, DiscardBallContainer
 
-
+#container for reserve balls
 var reserveArray := []
+
 var control
+
+#used to check whether we have already emptied the discard
 var discardEmpty = false
 
-func getControl():
+#used to get the generic control node (Don't ask me whether this is the best way to do this)
+func getControl() -> void:
 	control = get_child(0)
 	remove_child(control)
 
+# connected To : 
+# Purpose : 
 signal SendDiscardBack(amt, location)
+
+# connected To : 
+# Purpose : 
 signal SendToNewLocation(ball, location)
 
 
-func _on_DiscardGiveBalls(arrayOfBalls, amt, location):
+func _on_DiscardGiveBalls(arrayOfBalls, amt, location) -> void:
 	_on_Player_Panel_addToReserve(arrayOfBalls)
 	_on_Player_Panel_removeAmtFromReserve(amt, location)
 
 
-func _on_Player_Panel_addToReserve(arrayOfBalls):
+func _on_Player_Panel_addToReserve(arrayOfBalls) -> void:
 	randomize()
 	if(control == null):
 		getControl()
@@ -37,7 +51,7 @@ func _on_Player_Panel_addToReserve(arrayOfBalls):
 		reserveArray.push_front(i)
 
 
-func _on_Player_Panel_removeAmtFromReserve(amt, location):
+func _on_Player_Panel_removeAmtFromReserve(amt, location) -> void:
 	var rng = RandomNumberGenerator.new()
 	if(amt > reserveArray.size() && discardEmpty == false):
 		discardEmpty = true
@@ -59,7 +73,7 @@ func _on_Player_Panel_removeAmtFromReserve(amt, location):
 		discardEmpty = false
 
 
-func _on_Player_Panel_removeFromReserve(ball, location):
+func _on_Player_Panel_removeFromReserve(ball, location) -> void:
 	var index = reserveArray.find(ball)
 	if(index != -1):
 		reserveArray.remove(index)

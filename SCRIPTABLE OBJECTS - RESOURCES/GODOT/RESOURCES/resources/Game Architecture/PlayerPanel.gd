@@ -1,22 +1,64 @@
 extends Panel
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
 var playerResource
 
 enum location {BOARD = 0, RESERVE = 1, DISCARD = 2}
 
+# Connected To : 
+# Purpose : 
 signal sendTitle(name)
+
+# Connected To : 
+# Purpose : 
 signal sendHealthToBar(currentHealth, maxHealth)
+
+# Connected To : 
+# Purpose : 
 signal sendHealthToText(currentHealth, maxHealth)
+
+# Connected To : 
+# Purpose : 
 signal setTexture(texture)
+
+# Connected To : 
+# Purpose : 
 signal addToReserve(arrayOfBalls, amt)
+
+# Connected To : 
+# Purpose : 
 signal addToDiscard(arrayOfBalls)
+
+# Connected To : 
+# Purpose : 
 signal removeFromDiscard(ball, location)
+
+# Connected To : 
+# Purpose : 
 signal removeAmtFromReserve(amt, location)
+
+# Connected To : 
+# Purpose : 
 signal removeFromReserve(ball, location)
+
+# Connected To : 
+# Purpose : 
 signal setMoney(amt)
+
+# Connected To : 
+# Purpose : 
 signal setEnergy(current, maxEnergy)
+
+# Connected To : 
+# Purpose : 
 signal startEnemyTurn
+
+# Connected To : 
+# Purpose : 
 signal addToBoard(ball)
 
 

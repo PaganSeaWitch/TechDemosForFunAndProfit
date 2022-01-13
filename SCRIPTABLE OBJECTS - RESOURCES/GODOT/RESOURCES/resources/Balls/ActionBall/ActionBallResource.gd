@@ -1,6 +1,12 @@
 extends BallResource
 class_name ActionBallResource
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
+
 export(Array, Resource) var hits
 
 var currentHits = []

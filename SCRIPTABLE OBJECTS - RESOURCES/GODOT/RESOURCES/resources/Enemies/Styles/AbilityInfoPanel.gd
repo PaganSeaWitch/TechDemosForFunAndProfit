@@ -1,10 +1,14 @@
 extends Control
 
+# TITLE : AbilityInfoPanel
+# Functions : _Ready
+# Purpose : Creates a visualization of one of a ball's hit ablities
+# Closely Related Scripts : AbilityInfoResource
 
 export(Resource) var abilityInfoResource
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+# Sets up nodes within the AbilityInfoPanel Scene to contain relevant ablity info
+func _ready() -> void:
 	get_child(0).text = String(abilityInfoResource.amount)
 	get_child(1).texture = abilityInfoResource.type
 	if(abilityInfoResource.perAmount == 0):
@@ -18,7 +22,3 @@ func _ready():
 		newPeg.get_child(3).collision_mask = 0
 		get_child(3).add_child(newPeg)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

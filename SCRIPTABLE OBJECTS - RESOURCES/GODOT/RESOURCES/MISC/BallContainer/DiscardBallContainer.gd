@@ -1,39 +1,62 @@
 extends GridContainer
 
+# TITLE : DiscardBallContainer
+# Functions : _on_Player_Panel_removeFromDiscard, _on_Player_panel_addToDiscard,
+#		_on_GridContainer_SendDiscardBack, _ready
+# Purpose: Contains and displays balls that have been discarded by the player
+# Closely Connected Scripts : PlayerPanel, ReserveBallContainer
 
-# Declare member variables here. Examples:
-# var a = 2
+
+#container for discarded balls
 var discardArray := []
+
 var control
 
+# Contected To : PlayerPanel
+# Purpose : Sends a ball to PlayerPanel to be assigned to a new location
 signal SendToNewLocation(ball, location)
+
+# Contected To : ReserveBallContainer
+# Purpose : Sends All the Discarded Balls To Reserve for use
 signal SendDiscardBack(ballArray, amt, location)
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+
+#gets a control node for usage (Don't ask me whether this is the best way to do this)
+func _ready() -> void:
 	control = get_child(0)
 	remove_child(control)
 
 
-func _on_Player_Panel_removeFromDiscard(ball, location):
+#Recieved From : PlayerPanel
+#finds a ball in the discard and sends it back to PlayerPanel
+func _on_Player_Panel_removeFromDiscard(ball, location) ->void:
 	var index = discardArray.find(ball)
 	if(index != -1):
 		discardArray.remove(index)
 		emit_signal("SendToNewLocation", ball, location)
 
-
-func _on_Player_Panel_addToDiscard(arrayOfBalls):
+#Recieved From : PlayerPanel
+#Adds recieved array of balls to the discard
+func _on_Player_Panel_addToDiscard(arrayOfBalls) -> void:
 	for i in arrayOfBalls:
+		
+		#set up control for display
 		var newControl = control.duplicate()
 		newControl.set_mouse_filter(MOUSE_FILTER_IGNORE)
 		newControl.set_custom_minimum_size(Vector2(50,50))
 		self.add_child(newControl)
+		
+		#adds ball to control
 		var newBall = i.instance()
 		newBall.ballIsStatic = true
 		discardArray.push_front(i)
 		newControl.add_child(newBall)
 		newBall.position = Vector2(25,25)
 
-func _on_GridContainer_SendDiscardBack(amt, location):
+
+#Recieved From : ReserveBallContainer
+#Empties DiscardArray and sends the balls to PlayerPanel for relocation
+func _on_GridContainer_SendDiscardBack(amt, location) -> void:
 	var tempArray =[]
 	tempArray.append_array(discardArray)
 	for i in discardArray.size():

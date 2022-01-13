@@ -1,15 +1,41 @@
 extends Panel
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
 var enemyResource
 
+# Connected To : 
+# Purpose : 
 signal sendTitle(name, description)
+
+# Connected To : 
+# Purpose : 
 signal sendHealthToBar(currentHealth, maxHealth)
+
+# Connected To : 
+# Purpose : 
 signal sendHealthToText(currentHealth, maxHealth)
+
+# Connected To : 
+# Purpose : 
 signal setTexture(texture)
+
+# Connected To : 
+# Purpose : 
 signal setBall(ball, index)
+
+# Connected To : 
+# Purpose : 
 signal clearBalls
+
+# Connected To : 
+# Purpose : 
 signal startSpawningBalls(ballArray)
+
+
 var index := 0;
 var moves = []
 

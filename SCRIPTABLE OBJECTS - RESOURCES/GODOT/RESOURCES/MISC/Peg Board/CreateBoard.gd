@@ -1,5 +1,12 @@
 extends Node2D
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
+
+# connected To : 
+# Purpose : 
 signal mirrorThis(pegs)
 # Declare member variables here. Examples:
 # var a = 2

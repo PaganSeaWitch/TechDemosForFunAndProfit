@@ -1,5 +1,11 @@
 extends Resource
 class_name Hit
+
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 export(Array, Script) var positivePegs
 export(Array, Script) var negativePegs
 

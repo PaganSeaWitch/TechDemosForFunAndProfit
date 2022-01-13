@@ -1,14 +1,36 @@
 extends Node2D
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 
 export(bool) var ballIsStatic
 export(Resource) var ballResource
 
+# Connected To : 
+# Purpose : 
 signal transferResources(ballResource)
+
+# Connected To : 
+# Purpose : 
 signal changeToStatic
+
+# Connected To : 
+# Purpose : 
 signal flipGravity
+
+# Connected To : 
+# Purpose : 
 signal setTeam(team)
+
+# Connected To : 
+# Purpose : 
 signal stopBouncing
+
+# Connected To : 
+# Purpose : 
 signal draggable(canBeDragged)
 
 

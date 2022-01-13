@@ -1,6 +1,11 @@
 extends Resource
 class_name PlayerResource
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 # Declare member variables here. Examples:
 export(String, MULTILINE) var name
 export(Texture) var texture

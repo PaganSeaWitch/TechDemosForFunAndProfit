@@ -1,10 +1,31 @@
 extends RigidBody2D
 class_name PachinkoBall
 var ballResource : BallResource
+
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
+
+# Connected To : 
+# Purpose : 
 signal addText(name)
+
+# Connected To : 
+# Purpose : 
 signal addTexture(texture)
+
+# Connected To : 
+# Purpose : 
 signal addInfo(abilitiesInfo)
+
+# Connected To : 
+# Purpose : 
 signal beingDragged(isBeingDragged)
+
+# Connected To : 
+# Purpose : 
 signal turnOff
 
 

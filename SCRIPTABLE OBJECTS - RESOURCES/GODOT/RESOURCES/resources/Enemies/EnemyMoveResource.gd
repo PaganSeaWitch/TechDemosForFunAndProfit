@@ -1,6 +1,11 @@
 extends Resource
 class_name EnemeyMove
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

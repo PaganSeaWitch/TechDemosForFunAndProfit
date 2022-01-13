@@ -1,6 +1,11 @@
 extends Hit
 class_name PayloadModifierHit
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 export(String) var team
 export(String) var value
 export(float) var reduceByOnNegativeHits

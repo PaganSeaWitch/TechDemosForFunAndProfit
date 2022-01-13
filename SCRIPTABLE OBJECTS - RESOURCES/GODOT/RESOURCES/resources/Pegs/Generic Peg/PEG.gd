@@ -1,9 +1,25 @@
 extends StaticBody2D
 class_name Peg
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
+# Connected To : 
+# Purpose : 
 signal emitParticles
+
+# Connected To : 
+# Purpose : 
 signal addHit(amt)
+
+# Connected To : 
+# Purpose : 
 signal startTextTimer
+
+# Connected To : 
+# Purpose : 
 signal getDarker(amt)
 
 var hitsAllowed

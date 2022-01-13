@@ -1,5 +1,10 @@
 extends Control
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 
 export(int) var pos 
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/Themes/defaultTheme.tres" type="Theme" id=1]
-[ext_resource path="res://resources/Styles/defaultFlatStyle.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/Enemies/Styles/defaultFlatStyle.tres" type="StyleBox" id=2]
 [ext_resource path="res://MISC/BallContainer/ballDropPosition.gd" type="Script" id=3]
 [ext_resource path="res://MISC/Peg Board/enemySpawnBallZone.gd" type="Script" id=4]
 [ext_resource path="res://MISC/reallySimpleScripts/EndTurnButton.gd" type="Script" id=5]
@@ -227,6 +227,7 @@ rect_scale = Vector2( 0.2, 0.2 )
 mouse_filter = 2
 texture = ExtResource( 6 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

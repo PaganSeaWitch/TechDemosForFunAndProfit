@@ -1,15 +1,27 @@
 extends Area2D
-
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 export(String) var teamZone
+
+# connected To : 
+# Purpose : 
 signal sendBallToDiscard(ball)
+
+# connected To : 
+# Purpose : 
 signal sendPayloadToEnemy(key, value)
+
+# connected To : 
+# Purpose : 
 signal sendPayloadToPlayer(key, value)
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pass # Replace with function body.
 

@@ -1,6 +1,11 @@
 extends Hit
 class_name PaintHit
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 export(Array, PackedScene) var colorArray
 export(Array, Script) var colorTypeArray
 

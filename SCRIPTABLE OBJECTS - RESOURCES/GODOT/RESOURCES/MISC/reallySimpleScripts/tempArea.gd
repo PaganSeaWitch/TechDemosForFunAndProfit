@@ -1,9 +1,13 @@
 extends Area2D
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+# Connected To : 
+# Purpose : 
 signal givePos(upperleft, upperRight, bottomLeft, bottomRight)
 
 # Called when the node enters the scene tree for the first time.

@@ -1,5 +1,10 @@
 extends ProgressBar
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 var styleboxEdge = load("res://resources/Styles/progressBarForegrounEdge.tres")
 func _process(_delta):
 	if(self.ratio <= .96):

@@ -1,9 +1,11 @@
 extends Node2D
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# connected To : 
+# Purpose : 
 signal setStuffs( upperLeft, upperRight, bottomLeft, BottomRight, minPeg, maxPeg)
 
 export var minPeg : int

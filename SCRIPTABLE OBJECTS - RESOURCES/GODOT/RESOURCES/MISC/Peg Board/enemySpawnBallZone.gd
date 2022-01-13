@@ -1,10 +1,22 @@
 extends Node2D
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
+
+# connected To : 
+# Purpose : 
+signal resetPegs
+
+# connected To : 
+# Purpose : 
+signal startPlayerTurn
 
 var thread
 var terminated = false
-signal resetPegs
-signal startPlayerTurn
+
+
 var ballArray
 var finished = false
 var dropping = false

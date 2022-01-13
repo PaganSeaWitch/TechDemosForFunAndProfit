@@ -1,6 +1,11 @@
 extends Resource
 class_name AbilityInfo
 
+# TITLE : AbilityInfoResource
+# Functions : _init
+# Purpose: Creates A Resource That Is Used To Create Visual Information About A Ball's Ability
+# Closely Related Scripts : AbilityInfoPanel
+
 export(int) var amount
 export(Texture) var type
 export(PackedScene) var peg

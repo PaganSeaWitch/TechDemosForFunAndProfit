@@ -1,5 +1,9 @@
 extends Node
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
 
 var ballCurrentCount = 0
 

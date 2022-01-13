@@ -1,8 +1,18 @@
 extends Control
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
 enum EnemyType {COMMON = 1, ELITE = 2}
 
+# Connected To : 
+# Purpose : 
 signal sendPlayerResource(playerResource)
+
+# Connected To : 
+# Purpose : 
 signal sendEnemyResource(enemyResource)
 
 

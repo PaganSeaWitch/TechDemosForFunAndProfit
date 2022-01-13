@@ -1,6 +1,13 @@
 extends Resource
 class_name BallResource
 
+# TITLE : 
+# Functions : 
+# Purpose :
+# Closely Connected Scripts : 
+
+
+
 export(PhysicsMaterial) var physicsMaterial
 export(Texture) var texture
 export(int) var gravityScale = 10
