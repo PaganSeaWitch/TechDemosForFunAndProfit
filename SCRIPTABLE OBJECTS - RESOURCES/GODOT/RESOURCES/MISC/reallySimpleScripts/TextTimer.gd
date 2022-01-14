@@ -1,25 +1,11 @@
 extends Timer
 
-# TITLE : 
-# Functions : 
-# Purpose :
-# Closely Connected Scripts : 
+# TITLE : TextTimer
+# Functions : _on_PEG_startTextTimer
+# Purpose : To start the timer when peg asks
+# Closely Connected Scripts : Peg
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+# Recieved From : Peg
+# Purpose : Start Timer
 func _on_PEG_startTextTimer():
 	self.start();

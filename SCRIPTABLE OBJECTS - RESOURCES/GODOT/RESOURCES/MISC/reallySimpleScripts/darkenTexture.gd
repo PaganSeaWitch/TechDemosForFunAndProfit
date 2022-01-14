@@ -1,29 +1,18 @@
 extends MeshInstance2D
 
-# TITLE : 
-# Functions : 
-# Purpose :
-# Closely Connected Scripts : 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# TITLE : darkenTexture
+# Functions : _ready, _on_PEG_getDarker
+# Purpose : Darkens a Peg's texture based on how many times they've been hit
+# Closely Connected Scripts : Peg
 
 
-# Called when the node enters the scene tree for the first time.
-
-var startingRed
-var startingBlue
-var startingGreen
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _ready():
-	var color = self.texture.gradient.get_color(0)
-	startingRed = color.r
-	startingBlue = color.b
-	startingGreen = color.g
+var startingRed : float
+var startingBlue : float
+var startingGreen : float
 
 
+# Recieved From : Peg
+# Purpose : darkens the pegs texture
 func _on_PEG_getDarker(amt):
 	var newRed = startingRed/amt;
 	var newBlue = startingBlue/amt;
@@ -31,5 +20,10 @@ func _on_PEG_getDarker(amt):
 	self.texture.gradient.set_color(0, Color(newRed,newGreen, newBlue));
 
 
-
+# Purpose : Gets the color of the texture
+func _ready():
+	var color = self.texture.gradient.get_color(0)
+	startingRed = color.r
+	startingBlue = color.b
+	startingGreen = color.g
 

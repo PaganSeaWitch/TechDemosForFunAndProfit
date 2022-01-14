@@ -1,16 +1,15 @@
 extends Node2D
-# TITLE : 
-# Functions : 
-# Purpose :
-# Closely Connected Scripts : 
+# TITLE : Mirror
+# Functions : _on_FirstHalf_mirrorThis
+# Purpose : Mirrors recieved pegs
+# Closely Connected Scripts : CreateBoard
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var peg = load("res://resources/Pegs/Generic Peg/PEG.tscn")
 
-
-func _on_FirstHalf_mirrorThis(pegs):
+# Recieved From : CreateBoard
+# Purpose : Recieves array of pegs and mirrors them
+func _on_FirstHalf_mirrorThis(pegs : Array):
 	self.set_global_scale(Vector2(1,1))
 	for n in range(pegs.size()):
 		var newPeg = peg.instance()

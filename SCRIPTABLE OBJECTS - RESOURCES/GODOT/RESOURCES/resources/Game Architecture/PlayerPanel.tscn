@@ -1,16 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://resources/Themes/defaultTheme.tres" type="Theme" id=2]
 [ext_resource path="res://resources/Fonts/defaultFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://resources/Enemies/Styles/HealthBar.gd" type="Script" id=4]
-[ext_resource path="res://resources/Enemies/Styles/backgroundInfoPanel.tres" type="StyleBox" id=5]
+[ext_resource path="res://resources/Styles/HealthBar.gd" type="Script" id=4]
+[ext_resource path="res://resources/Styles/backgroundInfoPanel.tres" type="StyleBox" id=5]
 [ext_resource path="res://resources/Textures/GreenDollarSign.png" type="Texture" id=6]
-[ext_resource path="res://resources/Enemies/Styles/SolidLinePanel.tres" type="StyleBox" id=7]
+[ext_resource path="res://resources/Styles/SolidLinePanel.tres" type="StyleBox" id=7]
 [ext_resource path="res://resources/Textures/power.png" type="Texture" id=8]
 [ext_resource path="res://MISC/reallySimpleScripts/addText.gd" type="Script" id=9]
 [ext_resource path="res://MISC/reallySimpleScripts/addRectTexture.gd" type="Script" id=10]
-[ext_resource path="res://MISC/reallySimpleScripts/addHealthText.gd" type="Script" id=11]
 [ext_resource path="res://resources/Game Architecture/PlayerPanel.gd" type="Script" id=12]
 [ext_resource path="res://MISC/BallContainer/DiscardBallContainer.gd" type="Script" id=13]
 [ext_resource path="res://MISC/reallySimpleScripts/ReservePopup.gd" type="Script" id=14]
@@ -94,7 +93,7 @@ custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]HEALTH 100/100[/center]"
 text = "HEALTH 100/100"
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -386,8 +385,8 @@ __meta__ = {
 [connection signal="removeAmtFromReserve" from="." to="CanvasLayer2/ReservePopup/Panel2/GridContainer" method="_on_Player_Panel_removeAmtFromReserve"]
 [connection signal="removeFromDiscard" from="." to="CanvasLayer/DiscardPopup/Panel2/GridContainer" method="_on_Player_Panel_removeFromDiscard"]
 [connection signal="sendHealthToBar" from="." to="Health Panel/Health Bar" method="_on_EnemyPanel_sendHealthToBar"]
-[connection signal="sendHealthToText" from="." to="Health Panel/Health Label" method="_on_EnemyPanel_sendHealthToText"]
-[connection signal="sendTitle" from="." to="title Panel/RichTextLabel" method="_on_BALL_addText"]
+[connection signal="sendHealthToText" from="." to="Health Panel/Health Label" method="_on_Panel_sendHealthToText"]
+[connection signal="sendTitle" from="." to="title Panel/RichTextLabel" method="_on_centerText"]
 [connection signal="setEnergy" from="." to="Stats Panel/Energy Label" method="_on_sendEnergy_rightCentered"]
 [connection signal="setMoney" from="." to="Stats Panel/moneyLabel" method="_on_sendTitle_rightCentered"]
 [connection signal="setTexture" from="." to="panel/TextureRect" method="_on_setTexture"]

@@ -94,7 +94,7 @@ func _on_Player_Panel_removeFromReserve(ball : PackedScene, location : int) -> v
 
 
 # Purpose : Sends a random ball to a new location
-func sendBall(location):
+func sendBall(location : int) -> void:
 	var rng = RandomNumberGenerator.new()
 	var randIndex = rng.randi_range(0, reserveArray.size()-1)
 	emit_signal("SendToNewLocation", reserveArray[randIndex], location)

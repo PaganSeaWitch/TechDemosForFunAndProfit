@@ -1,27 +1,23 @@
 extends PachinkoBall
 class_name ActionBall
 
-# TITLE : 
-# Functions : 
-# Purpose :
-# Closely Connected Scripts : 
+# TITLE : ActionBall
+# Functions : _on_GENERIC_BALL_transferResources, ResolvePegHit
+# Purpose : To allow for balls to enact their custom actions
+# Closely Connected Scripts : PachinkoBall, GenericBall
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var hits : Array
 
 
-var hits
-
-# Called when the node enters the scene tree for the first time.
-func _on_GENERIC_BALL_transferResources(ballResource):
+# Recieved From : GenericBall
+# Purpose : transfers resources to ball
+func _on_GENERIC_BALL_transferResources(ballResource : BallResource):
 	._on_GENERIC_BALL_transferResources(ballResource)
 	self.hits = ballResource.currentHits
 
-func ResolvePegHit(peg):
+
+# Purpose : resolves peg hits
+func ResolvePegHit(peg : Peg):
 	if(ballResource.customAction(peg)):
 		.ResolvePegHit(peg)
-
-
-

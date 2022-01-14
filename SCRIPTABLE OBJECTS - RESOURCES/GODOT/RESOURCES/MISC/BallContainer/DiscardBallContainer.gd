@@ -11,6 +11,7 @@ extends GridContainer
 # Purpose : Sends a ball to PlayerPanel to be assigned to a new location
 signal SendToNewLocation(ball, location)
 
+
 # Contected To : ReserveBallContainer
 # Purpose : Sends All the Discarded Balls To Reserve for use
 signal SendDiscardBack(ballArray, amt, location)
@@ -30,7 +31,7 @@ func _on_Player_Panel_removeFromDiscard(ball : PackedScene, location : int) ->vo
 		emit_signal("SendToNewLocation", ball, location)
 
 
-#Recieved From : PlayerPanel
+# Recieved From : PlayerPanel
 # Purpose : Adds recieved array of balls to the discard
 func _on_Player_Panel_addToDiscard(arrayOfBalls : Array) -> void:
 	for i in arrayOfBalls:
@@ -49,7 +50,7 @@ func _on_Player_Panel_addToDiscard(arrayOfBalls : Array) -> void:
 		newBall.position = Vector2(25,25)
 
 
-#Recieved From : ReserveBallContainer
+# Recieved From : ReserveBallContainer
 # Purpose : Empties DiscardArray and sends the balls to PlayerPanel for relocation
 func _on_GridContainer_SendDiscardBack(amt : int, location : int) -> void:
 	var tempArray =[]

@@ -1,28 +1,18 @@
 extends Button
 
-# TITLE : 
-# Functions : 
-# Purpose :
-# Closely Connected Scripts : 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# TITLE : EndTurnButton
+# Functions : _on_EndTurnButton_pressed, _on_enemySpawnBallZone_startPlayerTurn
+# Purpose : Ends Player's Turn
+# Closely Connected Scripts :  enemySpawnBallZone
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+# Recieved From : EndTurnButton
+# Purpose : disables self
 func _on_EndTurnButton_pressed():
 	self.disabled = true
 
-
+# Recieved From : enemySpawnBallZone
+# Purpose : enables self
 func _on_enemySpawnBallZone_startPlayerTurn():
 	self.disabled = false

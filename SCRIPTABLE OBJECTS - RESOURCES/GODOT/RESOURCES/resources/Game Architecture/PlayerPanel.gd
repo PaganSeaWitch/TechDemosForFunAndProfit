@@ -1,8 +1,8 @@
 extends Panel
 
-# TITLE : 
+# TITLE : PlayerPanel
 # Functions : 
-# Purpose :
+# Purpose : 
 # Closely Connected Scripts : 
 
 var playerResource

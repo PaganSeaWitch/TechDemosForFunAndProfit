@@ -7,7 +7,7 @@
 [ext_resource path="res://resources/Themes/defaultTheme.tres" type="Theme" id=5]
 [ext_resource path="res://MISC/reallySimpleScripts/addText.gd" type="Script" id=6]
 [ext_resource path="res://MISC/reallySimpleScripts/addTexture.gd" type="Script" id=7]
-[ext_resource path="res://resources/Enemies/Styles/BallBackgroundPanel.tres" type="StyleBox" id=9]
+[ext_resource path="res://resources/Styles/BallBackgroundPanel.tres" type="StyleBox" id=9]
 [ext_resource path="res://AbilityInfo/AbilityInfoPanel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://resources/Balls/GenericBall/abilitiesInfoContainer.gd" type="Script" id=12]
 
@@ -188,7 +188,7 @@ panel = ExtResource( 11 )
 [connection signal="stopBouncing" from="." to="BALL" method="_on_GENERIC_BALL_stopBouncing"]
 [connection signal="transferResources" from="." to="BALL" method="_on_GENERIC_BALL_transferResources"]
 [connection signal="addInfo" from="BALL" to="Node2D/Control/ScrollContainer/VBoxContainer" method="_on_BALL_addInfo"]
-[connection signal="addText" from="BALL" to="Node2D/Control/Panel/Panel2/RichTextLabel" method="_on_BALL_addText"]
+[connection signal="addText" from="BALL" to="Node2D/Control/Panel/Panel2/RichTextLabel" method="_on_centerText"]
 [connection signal="addTexture" from="BALL" to="BALL/CollisionShape2D/mesh" method="_on_addTexture"]
 [connection signal="beingDragged" from="BALL" to="Node2D/Control" method="_on_BALL_beingDragged"]
 [connection signal="body_shape_entered" from="BALL" to="BALL" method="_on_BALL_body_shape_entered"]

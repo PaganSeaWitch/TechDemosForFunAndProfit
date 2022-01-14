@@ -94,9 +94,7 @@ font_data = ExtResource( 3 )
 [sub_resource type="CircleShape2D" id=12]
 radius = 5.25273
 
-[node name="PEG" type="StaticBody2D" groups=[
-"Pegs",
-]]
+[node name="PEG" type="StaticBody2D" groups=["Pegs"]]
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
 pegResource = ExtResource( 6 )
@@ -140,8 +138,8 @@ margin_left = -1.0
 margin_top = -3.0
 margin_right = 5.0
 margin_bottom = 4.0
-custom_fonts/normal_font = SubResource( 11 )
 custom_colors/default_color = Color( 0.513726, 0.0862745, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 11 )
 meta_underlined = false
 scroll_active = false
 script = ExtResource( 4 )

@@ -1,10 +1,14 @@
 extends RigidBody2D
 class_name PachinkoBall
 var ballResource : BallResource
-
-# TITLE : 
-# Functions : 
-# Purpose :
+#TODO THIS CODE
+# TITLE : BALL
+# Functions : _on_BALL_body_shape_entered, ResolvePegHit, _physics_process,
+#		_on_GENERIC_BALL_transferResources, _on_GENERIC_BALL_changeToStatic,
+#		_on_GENERIC_BALL_stopBouncing, _on_GENERIC_BALL_startBouncing,
+#		_on_GENERIC_BALL_draggable, _input, _on_GENERIC_BALL_flipGravity
+# 		_on_GENERIC_BALL_setTeam
+# Purpose : To control the RigidBody2D of the ball
 # Closely Connected Scripts : 
 
 
@@ -29,24 +33,28 @@ signal beingDragged(isBeingDragged)
 signal turnOff
 
 
-var rightSpot = false
-var hitFor
-var payloadDictionary = {}
-var dragging = false
-var click_radius = 10
-var draggable = false
-var stopBouncing = false
+var rightSpot := false
+var hitFor : int
+var payloadDictionary := {}
+var dragging := false
+var click_radius := 10
+var draggable := false
+var stopBouncing := false
 
+# Recieved From : 
+# Purpose : 
 func _on_BALL_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if(body.is_in_group("Pegs")):
 		ResolvePegHit(body)
 
 
-func ResolvePegHit(peg):
+# Purpose : 
+func ResolvePegHit(peg : Peg):
 	if(peg.has_method("addHit")):
 		peg.addHit(hitFor)
 
-
+# Recieved From : 
+# Purpose : 
 func _on_GENERIC_BALL_transferResources(newResource):
 	ballResource = newResource as BallResource
 	hitFor = ballResource.hitsFor
@@ -59,36 +67,45 @@ func _on_GENERIC_BALL_transferResources(newResource):
 	get_child(0).set_scale(ballResource.scale)
 	emit_signal("addInfo", ballResource.abilitiesInfo)
 
-
-
+# Recieved From : 
+# Purpose : 
 func _on_GENERIC_BALL_changeToStatic():
 	self.set_deferred("mode",RigidBody2D.MODE_STATIC)
 
-
+# Recieved From : 
+# Purpose : 
 func _on_BALL_mouse_entered():
 	if(self.mode != RigidBody2D.MODE_STATIC):
 		get_parent().get_child(1).global_position = self.global_position
 
+
+# Purpose : 
 func _physics_process(_delta):
 	get_parent().get_child(1).global_position = self.global_position
 
+# Recieved From : 
+# Purpose : 
 func _on_GENERIC_BALL_setTeam(team):
 	self.add_to_group(team)
 
-
+# Recieved From : 
+# Purpose : 
 func _on_GENERIC_BALL_flipGravity():
 	self.gravity_scale = -1 * self.gravity_scale
 
-
+# Recieved From : 
+# Purpose : 
 func _on_GENERIC_BALL_stopBouncing():
 	stopBouncing = true
 	self.set_physics_material_override(null)
 
-
+# Recieved From : 
+# Purpose : 
 func _on_GENERIC_BALL_startBouncing():
 		self.set_physics_material_override(ballResource.physicsMaterial)
 
 
+# Purpose : 
 func _input(event):
 	if(event is InputEventMouseButton && event.button_index == BUTTON_LEFT):
 		if (event.position - self.global_position).length() < click_radius:
@@ -122,6 +139,8 @@ func _input(event):
 		self.linear_velocity = Vector2(0,0)
 
 
+# Recieved From : 
+# Purpose : 
 func _on_GENERIC_BALL_draggable(canBeDragged):
 	self.draggable = canBeDragged
 

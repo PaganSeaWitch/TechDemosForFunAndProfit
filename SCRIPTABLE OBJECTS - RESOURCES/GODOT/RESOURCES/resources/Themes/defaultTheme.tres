@@ -1,11 +1,11 @@
 [gd_resource type="Theme" load_steps=7 format=2]
 
 [ext_resource path="res://resources/Fonts/defaultFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://resources/Enemies/Styles/defaultFlatStyle.tres" type="StyleBox" id=2]
-[ext_resource path="res://resources/Enemies/Styles/defaultDisabledStyle.tres" type="StyleBox" id=3]
-[ext_resource path="res://resources/Enemies/Styles/panelStyle.tres" type="StyleBox" id=4]
-[ext_resource path="res://resources/Enemies/Styles/progressBarBackgroundStyle.tres" type="StyleBox" id=6]
-[ext_resource path="res://resources/Enemies/Styles/progressBarForegroundRound.tres" type="StyleBox" id=7]
+[ext_resource path="res://resources/Styles/defaultFlatStyle.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/Styles/defaultDisabledStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://resources/Styles/panelStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://resources/Styles/progressBarBackgroundStyle.tres" type="StyleBox" id=6]
+[ext_resource path="res://resources/Styles/progressBarForegroundRound.tres" type="StyleBox" id=7]
 
 [resource]
 default_font = ExtResource( 1 )

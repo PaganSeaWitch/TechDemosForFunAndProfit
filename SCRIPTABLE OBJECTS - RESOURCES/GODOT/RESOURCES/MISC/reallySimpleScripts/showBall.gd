@@ -1,17 +1,17 @@
 extends Control
 
-# TITLE : 
-# Functions : 
-# Purpose :
-# Closely Connected Scripts : 
+# TITLE : showBall
+# Functions : _on_EnemyPanel_setBall, _on_EnemyPanel_clearBalls
+# Purpose : To Show the enemy's next turn
+# Closely Connected Scripts : EnemyPanel
 
 
-export(int) var pos 
+export(int) var pos : int
 
 
-
-#adds a ball at a specific index to the enemy panel
-func _on_EnemyPanel_setBall(ball, index):
+# Recieved From : EnemyPanel
+# Purpose : adds a ball at a specific index to the enemy panel
+func _on_EnemyPanel_setBall(ball : PackedScene, index :  int):
 	if(index == pos):
 		if(self.get_child_count() != 0):
 			self.remove_child(self.get_child(0))
@@ -27,7 +27,9 @@ func _on_EnemyPanel_setBall(ball, index):
 			2:
 				newBall.get_child(1).get_child(0).rect_position.x = newBall.get_child(1).get_child(0).rect_position.x + 35
 
-#removes all balls from the enemy turn panel
+
+# Recieved From : EnemyPanel
+# Purpose : removes all balls from the enemy turn panel
 func _on_EnemyPanel_clearBalls():
 	if(self.get_child_count() != 0):
 		self.remove_child(self.get_child(0))

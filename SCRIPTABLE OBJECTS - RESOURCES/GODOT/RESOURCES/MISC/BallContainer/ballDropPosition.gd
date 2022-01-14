@@ -45,7 +45,7 @@ func _on_enemySpawnBallZone_startPlayerTurn() -> void:
 
 # Recieved From : GarbageCollector
 # Purpose : finds and removes a specfic ball from the array
-func _on_Area2D_sendBallToDiscard(ball : PackedScene):
+func _on_Area2D_sendBallToDiscard(ball : Node) -> void:
 	var index = 0
 	for i in arrayOfBalls.size():
 		
