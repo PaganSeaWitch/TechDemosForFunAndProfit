@@ -242,7 +242,6 @@ polygon = PoolVector2Array( -288.433, 408.715, 279.063, 408.715, 298.906, 386.88
 [connection signal="addToBoard" from="CanvasLayer/Panel/Player Panel" to="spawnBallsIntoCup" method="_on_Player_Panel_addToBoard"]
 [connection signal="startEnemyTurn" from="CanvasLayer/Panel/Player Panel" to="CanvasLayer/Panel/EnemyPanel" method="_on_Player_Panel_startEnemyTurn"]
 [connection signal="startEnemyTurn" from="CanvasLayer/Panel/Player Panel" to="spawnBallsIntoCup" method="_on_Player_Panel_startEnemyTurn"]
-[connection signal="startSpawningBalls" from="CanvasLayer/Panel/EnemyPanel" to="enemySpawnBallZone" method="_on_EnemyPanel_startSpawningBalls"]
 [connection signal="sendBallToDiscard" from="Area2D" to="spawnBallsIntoCup" method="_on_Area2D_sendBallToDiscard"]
 [connection signal="sendPayloadToEnemy" from="Area2D" to="CanvasLayer/Panel/EnemyPanel" method="sendPayloadToEnemy"]
 [connection signal="sendPayloadToPlayer" from="Area2D" to="CanvasLayer/Panel/Player Panel" method="sendPayloadToPlayer"]

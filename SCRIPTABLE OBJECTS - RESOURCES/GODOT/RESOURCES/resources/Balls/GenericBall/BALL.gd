@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name PachinkoBall
 var ballResource : BallResource
-#TODO THIS CODE
+
 # TITLE : BALL
 # Functions : _on_BALL_body_shape_entered, ResolvePegHit, _physics_process,
 #		_on_GENERIC_BALL_transferResources, _on_GENERIC_BALL_changeToStatic,
@@ -9,27 +9,32 @@ var ballResource : BallResource
 #		_on_GENERIC_BALL_draggable, _input, _on_GENERIC_BALL_flipGravity
 # 		_on_GENERIC_BALL_setTeam
 # Purpose : To control the RigidBody2D of the ball
-# Closely Connected Scripts : 
+# Closely Connected Scripts : GenericBall, abilitiesInfoContainer, addText,
+#		addTexture, BallInfo
 
 
-# Connected To : 
-# Purpose : 
+# Connected To : addText
+# Purpose : sets text
 signal addText(name)
 
-# Connected To : 
-# Purpose : 
+
+# Connected To : addTexture
+# Purpose : sets texture
 signal addTexture(texture)
 
-# Connected To : 
-# Purpose : 
+
+# Connected To : abilitiesInfoContainer
+# Purpose : sets up labels
 signal addInfo(abilitiesInfo)
 
-# Connected To : 
-# Purpose : 
+
+# Connected To : BallInfo
+# Purpose : tells if being dragged
 signal beingDragged(isBeingDragged)
 
-# Connected To : 
-# Purpose : 
+
+# Connected To : BallInfo
+# Purpose : turns off labels
 signal turnOff
 
 
@@ -41,21 +46,23 @@ var click_radius := 10
 var draggable := false
 var stopBouncing := false
 
+
 # Recieved From : 
-# Purpose : 
+# Purpose : checks if what is hit is a peg
 func _on_BALL_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if(body.is_in_group("Pegs")):
 		ResolvePegHit(body)
 
 
-# Purpose : 
-func ResolvePegHit(peg : Peg):
-	if(peg.has_method("addHit")):
-		peg.addHit(hitFor)
+# Recieved From : GenericBall
+# Purpose : allows ball to be dragged
+func _on_GENERIC_BALL_draggable(canBeDragged : bool):
+	self.draggable = canBeDragged
 
-# Recieved From : 
-# Purpose : 
-func _on_GENERIC_BALL_transferResources(newResource):
+
+# Recieved From : TransferResources
+# Purpose : adds the ball's resorces to this
+func _on_GENERIC_BALL_transferResources(newResource : BallResource):
 	ballResource = newResource as BallResource
 	hitFor = ballResource.hitsFor
 	payloadDictionary = ballResource.currentPayload
@@ -67,46 +74,52 @@ func _on_GENERIC_BALL_transferResources(newResource):
 	get_child(0).set_scale(ballResource.scale)
 	emit_signal("addInfo", ballResource.abilitiesInfo)
 
-# Recieved From : 
-# Purpose : 
+
+# Recieved From : GenericBall
+# Purpose : sets mode to static
 func _on_GENERIC_BALL_changeToStatic():
 	self.set_deferred("mode",RigidBody2D.MODE_STATIC)
 
+
 # Recieved From : 
-# Purpose : 
+# Purpose : sets position to this
 func _on_BALL_mouse_entered():
 	if(self.mode != RigidBody2D.MODE_STATIC):
 		get_parent().get_child(1).global_position = self.global_position
 
 
-# Purpose : 
-func _physics_process(_delta):
+# Purpose : sets position of labels to this
+func _physics_process(_delta : float):
 	get_parent().get_child(1).global_position = self.global_position
 
-# Recieved From : 
-# Purpose : 
-func _on_GENERIC_BALL_setTeam(team):
+
+# Recieved From : GenericBall
+# Purpose : sets ball team
+func _on_GENERIC_BALL_setTeam(team : String):
 	self.add_to_group(team)
 
-# Recieved From : 
-# Purpose : 
+
+# Recieved From : GenericBall
+# Purpose : flips ball gravity
 func _on_GENERIC_BALL_flipGravity():
 	self.gravity_scale = -1 * self.gravity_scale
 
-# Recieved From : 
-# Purpose : 
+
+# Recieved From : GenericBall
+# Purpose : remove physics material
 func _on_GENERIC_BALL_stopBouncing():
 	stopBouncing = true
 	self.set_physics_material_override(null)
 
-# Recieved From : 
-# Purpose : 
+
+# Recieved From : GenericBall
+# Purpose : resets physics material
 func _on_GENERIC_BALL_startBouncing():
 		self.set_physics_material_override(ballResource.physicsMaterial)
 
 
-# Purpose : 
-func _input(event):
+# Purpose : Drag manager
+func _input(event : InputEvent):
 	if(event is InputEventMouseButton && event.button_index == BUTTON_LEFT):
 		if (event.position - self.global_position).length() < click_radius:
 			# Start dragging if the click is on the sprite.
@@ -139,8 +152,7 @@ func _input(event):
 		self.linear_velocity = Vector2(0,0)
 
 
-# Recieved From : 
-# Purpose : 
-func _on_GENERIC_BALL_draggable(canBeDragged):
-	self.draggable = canBeDragged
-
+# Purpose : resolves peg hits
+func ResolvePegHit(peg : Peg):
+	if(peg.has_method("addHit")):
+		peg.addHit(hitFor)
