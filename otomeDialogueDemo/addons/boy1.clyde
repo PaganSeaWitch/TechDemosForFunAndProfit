@@ -1,0 +1,52 @@
+
+{when boylove == 0} -> FirstMeeting
+{when boylove != 0} -> HallwayEncounter
+
+
+== FirstMeeting
+Narration: WHAM! #se_wham #ve_shake
+Player: Oh sorry! didn't see you there!
+Character: Oh, its alright, its my fault. #e_bordom #boy_enters
+    wasn't paying attention.
+Player: well, anyway, I'm PLAYER, nice to meet you! 
+Character: oh... my name is CHARACTER, i'll... #boy_name
+Narration: he stares akwardly around. #e_embaressment
+Character: I'll be going now... 
+Narration: He walks away. #b_exits
+
+-- Order of operations tags -> characters drawn -> dialogue show
+
+== HallwayEncounter
+( shuffle 
+    -> CarryingALot
+    -> SleepingInAnUnusedClassroom
+)
+
+
+== CarryingALot
+Narration: In between classes I see CHARACTER barely lifting
+    a giant stack of papers. #n_boy
+Player: Hey CHARACTER, do you need any help? #n_boy #boy_enters
+{when boyLove > 2} Character: Oh uh hi PLAYER, no i'm good 
+{when boyLove <= 2} -> BoyCantRememberNames
+
+
+== BoyCantRememberNames
+Character: oh hi um... #e_embarressed
+Character: .... #e_thinking
+Character: ....... #e_repeat
+Narration: He has totally forgotten my name #p_thots #e_repeat
+Character: I sa bel?? # #e_excited
+Player: No sorry I'm PLAYER. 
+Character: oh um... #e_embarressed
+Character: I'll be going now. #boy_exits
+Narration: I guess I didn't make a lasting impression on him. #p_thots
+
+
+== SleepingInAnUnusedClassroom
+Narration: I was walking to my next class when I see CHARACTER 
+    in one of the storage classrooms #boy_name
+Narration: I enter the class and to my surprise
+     I see he has fallen aslsep. #sc_boySleep #se_snoring
+Narration: He looks so peaceful laying there. #p_thots
+Narration: I leave the room quitely as to not disturb him.
