@@ -72,10 +72,8 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="BALL" type="RigidBody2D" parent="." groups=["Ball"]]
+[node name="BALL" type="KinematicBody2D" parent="." groups=["Ball"]]
 input_pickable = true
-contacts_reported = 5
-contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BALL"]
@@ -191,8 +189,7 @@ panel = ExtResource( 11 )
 [connection signal="addText" from="BALL" to="Node2D/Control/Panel/Panel2/RichTextLabel" method="_on_centerText"]
 [connection signal="addTexture" from="BALL" to="BALL/CollisionShape2D/mesh" method="_on_addTexture"]
 [connection signal="beingDragged" from="BALL" to="Node2D/Control" method="_on_BALL_beingDragged"]
-[connection signal="body_shape_entered" from="BALL" to="BALL" method="_on_BALL_body_shape_entered"]
-[connection signal="mouse_entered" from="BALL" to="BALL" method="_on_BALL_mouse_entered"]
 [connection signal="mouse_entered" from="BALL" to="Node2D/Control" method="_on_BALL_mouse_entered"]
+[connection signal="mouse_entered" from="BALL" to="BALL" method="_on_BALL_mouse_entered"]
 [connection signal="mouse_exited" from="BALL" to="Node2D/Control" method="_on_BALL_mouse_exited"]
 [connection signal="turnOff" from="BALL" to="Node2D/Control" method="_on_BALL_turnOff"]

@@ -9,12 +9,14 @@ extends Control
 
 var beingDragged := false
 
+
 # Recieved From : Ball
 # Purpose : shows info
 func _on_BALL_mouse_entered():
 	if(self.visible == false):
 		print('turn on')
 		self.visible = true
+
 
 # Recieved From : Ball
 # Purpose : vanishes info
@@ -27,6 +29,7 @@ func _on_BALL_mouse_exited():
 # Purpose : sets dragging
 func _on_BALL_beingDragged(isBeingDragged : bool):
 	beingDragged = isBeingDragged
+
 
 # Recieved From : Ball
 # Purpose : vanishes info

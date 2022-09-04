@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 class_name PachinkoBall
 var ballResource : BallResource
 
@@ -8,7 +8,7 @@ var ballResource : BallResource
 #		_on_GENERIC_BALL_stopBouncing, _on_GENERIC_BALL_startBouncing,
 #		_on_GENERIC_BALL_draggable, _input, _on_GENERIC_BALL_flipGravity
 # 		_on_GENERIC_BALL_setTeam
-# Purpose : To control the RigidBody2D of the ball
+# Purpose : To control the Kinameaticbody of the ball
 # Closely Connected Scripts : GenericBall, abilitiesInfoContainer, addText,
 #		addTexture, BallInfo
 
